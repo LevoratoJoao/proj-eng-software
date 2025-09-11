@@ -54,3 +54,9 @@ Resposta da segunda entrevistada:
 6. "Papel, caderno, faz no computador imprime e põe numa pasta, e as salas não tem computador de professor teria que levar o dela, e a internet na escola é péssima."
 7. Resposta na seção de [Histórias de Usuário](#Historias-de-Usuario).
 8. "Não de forma alguma."
+
+### Pesquisa
+
+Também foi feita uma pesquisa de artigos e publicações acadêmicas relacionadas ao uso de tecnologia na educação, com o intuito de identificar tendências, desafios e oportunidades nesse campo. O artigo utilizado como referência destaca que, no desenvolvimento de sistemas escolares para apoiar professores e facilitar o acompanhamento dos pais, é fundamental considerar o que José Moran discute em [**Gestão inovadora da escola com tecnologias**](https://moran.eca.usp.br/textos/tecnologias_eduacacao/gestao.pdf).
+
+Segundo o autor, tecnologia na escola vai além do uso de computadores e internet, abrangendo também materiais, metodologias de ensino e a própria organização do espaço escolar, todos voltados para potencializar a aprendizagem (MORAN, 2000). Dessa forma, o sistema proposto deve ser entendido como uma ferramenta integradora, capaz de unir aspectos administrativos e pedagógicos, oferecendo funcionalidades como cadastro de alunos, planejamento de aulas e comunicação eficiente entre professores e responsáveis, alinhando-se às necessidades identificadas nas entrevistas realizadas.

@@ -95,6 +95,18 @@ Segundo o autor, tecnologia na escola vai além do uso de computadores e interne
 - "Sistema ter modelos de slides para professores que tenham dificuldade em criar apresentações.";
 - "As páginas do livro da escola em que dou aula são fracas e pobres em conteúdo então desenvolvo atividades complementares dessas páginas, então se tivesse um sistema que me desse essas atividades complementares já prontas com base no conteúdo, seria ótimo.";
 
+### Diagramas de sequência
+
+- "Algo que ajude os pais a lembrar das avaliações e atividades.":
+
+![Diagrama de Sequência - Lembrete de Avaliações](../Imagens/diagrama_notificacao.png)
+
+- "Um histórico da disciplina, faço registro das aulas, o que acontece e o que é passado, alguns professores não fazem isso, mas seria interessante ter um local para isso.":
+
+![Diagrama de Sequência - Histórico da Disciplina](../Imagens/diagrama_historico_disciplina.png)
+
+
+
 ## Plano de Gerenciamento de Requisitos
 
 Visando garantir que todos os requisitos identificados sejam devidamente documentados, rastreados e gerenciados ao longo do ciclo de vida do projeto, foram criados um repositório no GitHub e um quadro no Jira, para melhor visualização das atividades realizadas e um histórico de mudanças. Esses recursos permitem a organização eficiente das informações, facilitando o acompanhamento do progresso e a comunicação entre os membros da equipe.
@@ -120,5 +132,14 @@ Esses "Epics" são divididos em "Tarefas" menores, que representam atividades es
 ![Cronograma](../Imagens/cronograma_jira.png)
 
 ## Documento de Requisitos (V2)
+
+Uma das melhorias feitas foi com relação a história de usuário "Lembrete de Avaliações", onde foi adicionado a funcionalidade de notificações via email, para que os pais ou responsáveis possam receber lembretes automáticos sobre avaliações e atividades dos alunos. Essa funcionalidade visa melhorar a comunicação entre a escola e os responsáveis, garantindo que estejam sempre informados sobre o desempenho acadêmico dos alunos. Além disso, a professora não precisará mais se preocupar em lembrar os pais sobre essas datas importantes, pois o sistema fará isso automaticamente evitando contatos direto com os pais, que alguns professores podem ter receio de fazer (como visto na entrevista).
+
+![Diagrama de Sequência - Notificação por Email](../Imagens/diagrama_email.png)
+
+Outra história de usuário que foi detalhada é a "Um histórico da disciplina, faço registro das aulas, o que acontece e o que é passado, alguns professores não fazem isso, mas seria interessante ter um local para isso." onde será feito uma linha do tempo da aula, o professor além de ter uma visualização melhor do que foi passado em cada aula, também poderá ver o tempo gasto em cada ponto e adicionar comentários adicionais sobre dúvidas ou coisas que ocorreram no decorrer da aula.
+
+![Diagrama de Sequência - Linha do Tempo da Aula](../Imagens/diagrama_linha_tempo.png).
+
 
 

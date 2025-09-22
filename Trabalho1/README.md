@@ -11,7 +11,7 @@
   - [Diagramas de sequência](#Diagramas-de-sequência)
   - [Ilustração dos protótipos](#Ilustração-dos-protótipos)
 - [Plano de Gerenciamento de Requisitos](#Plano-de-Gerenciamento-de-Requisitos)
-- [Requisitos Versão 2](#Documento-de-Requisitos-(V2))
+- [Requisitos Versão 2](#Documento-de-requisitos-v2)
 
 ## Documento de Requisitos (V1)
 
@@ -78,6 +78,8 @@ Também foi feita uma pesquisa de artigos e publicações acadêmicas relacionad
 
 Segundo o autor, tecnologia na escola vai além do uso de computadores e internet, abrangendo também materiais, metodologias de ensino e a própria organização do espaço escolar, todos voltados para potencializar a aprendizagem (MORAN, 2000). Dessa forma, o sistema proposto deve ser entendido como uma ferramenta integradora, capaz de unir aspectos administrativos e pedagógicos, oferecendo funcionalidades como cadastro de alunos, planejamento de aulas e comunicação eficiente entre professores e responsáveis, alinhando-se às necessidades identificadas nas entrevistas realizadas.
 
+[Voltar ao topo](#Engenharia-de-Requisitos)
+
 ### Historias de Usuario
 
 - "Algo que ajude os pais a lembrar das avaliações e atividades.";
@@ -95,6 +97,8 @@ Segundo o autor, tecnologia na escola vai além do uso de computadores e interne
 
 ---
 
+[Voltar ao topo](#Engenharia-de-Requisitos)
+
 ### Diagramas de sequência
 
 - "Algo que ajude os pais a lembrar das avaliações e atividades.":
@@ -105,11 +109,15 @@ Segundo o autor, tecnologia na escola vai além do uso de computadores e interne
 
 ![Diagrama de Sequência - Histórico da Disciplina](../Imagens/diagrama_historico_disciplina.png)
 
+[Voltar ao topo](#Engenharia-de-Requisitos)
+
 ### Ilustração dos protótipos
 
 Apesar da notificação ser algo pra ser enviado automaticamente, o professor terá a opção de enviar lembretes manuais para os pais ou responsáveis, caso queira reforçar alguma data importante.
 
 ![Protótipo - Card notificação](../Imagens/prototipo_notificacao.png)
+
+[Voltar ao topo](#Engenharia-de-Requisitos)
 
 ## Plano de Gerenciamento de Requisitos
 
@@ -135,6 +143,8 @@ Esses "Epics" são divididos em "Tarefas" menores, que representam atividades es
 
 ![Cronograma](../Imagens/cronograma_jira.png)
 
+[Voltar ao topo](#Engenharia-de-Requisitos)
+
 ## Documento de Requisitos (V2)
 
 Uma das melhorias feitas foi com relação a história de usuário "Lembrete de Avaliações", onde foi adicionado a funcionalidade de notificações via email, para que os pais ou responsáveis possam receber lembretes automáticos sobre avaliações e atividades dos alunos. Essa funcionalidade visa melhorar a comunicação entre a escola e os responsáveis, garantindo que estejam sempre informados sobre o desempenho acadêmico dos alunos. Além disso, a professora não precisará mais se preocupar em lembrar os pais sobre essas datas importantes, pois o sistema fará isso automaticamente evitando contatos direto com os pais, que alguns professores podem ter receio de fazer (como visto na entrevista).
@@ -148,3 +158,5 @@ Outra história de usuário que foi detalhada é a "Um histórico da disciplina,
 Para a melhoria da tela de notificações, foi feita uma simples página html para ilustrar como seria, e também foi adicionada a coluna "Entregues" para que o professor possa ver quantos alunos já entregaram a atividade, facilitando o acompanhamento do progresso dos alunos. O código fonte dessa página pode ser visto na pasta "[pages](../pages)" do repositório.
 
 ![Protótipo - Tela de Notificações](../Imagens/pagina_notificacao.png)
+
+[Voltar ao topo](#Engenharia-de-Requisitos)

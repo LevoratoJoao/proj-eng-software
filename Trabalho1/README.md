@@ -1,16 +1,17 @@
 # Engenharia de Requisitos
 
-- [Documento de Requisitos (V1)](#Documento-de-Requisitos-(V1))
-    - [Introdução](#Introdução)
-    - [Objetivos](#Objetivos)
-    - [Levantamento dos Requisitos](#Levantamento-dos-Requisitos)
-        - [Entrevista](#Entrevista)
-        - [Análise das Respostas](#Análise-das-Respostas)
-        - [Pesquisa](#Pesquisa)
-    - [Historias de Usuario](#Historias-de-Usuario)
+- [Documento de Requisitos (V1)](<#Documento-de-Requisitos-(V1)>)
+  - [Introdução](#Introdução)
+  - [Objetivos](#Objetivos)
+  - [Levantamento dos Requisitos](#Levantamento-dos-Requisitos)
+    - [Entrevista](#Entrevista)
+    - [Análise das Respostas](#Análise-das-Respostas)
+    - [Pesquisa](#Pesquisa)
+  - [Historias de Usuario](#Historias-de-Usuario)
+  - [Diagramas de sequência](#Diagramas-de-sequência)
+  - [Ilustração dos protótipos](#Ilustração-dos-protótipos)
 - [Plano de Gerenciamento de Requisitos](#Plano-de-Gerenciamento-de-Requisitos)
-- [Requisitos Versão 2](#Requisitos-Versão-2)
-
+- [Requisitos Versão 2](#Documento-de-Requisitos-(V2))
 
 ## Documento de Requisitos (V1)
 
@@ -82,18 +83,17 @@ Segundo o autor, tecnologia na escola vai além do uso de computadores e interne
 - "Algo que ajude os pais a lembrar das avaliações e atividades.";
 - "Tem algumas atividades que são passadas em sites de jogos (Kahoot, Quizlet, etc), seria interessante termos uma metrica de quantos alunos estão utilizando esses sites.";
 - "Sistema organizar de forma automática as coisas que serão passadas na aula conforme o tempo da aula.";
+- "Ter uma função no sistema para reservas de materiais na escola.";
+- "Sistema ter modelos de slides para professores que tenham dificuldade em criar apresentações.";
 
 ---
 
 - "Um histórico da disciplina, faço registro das aulas, o que acontece e o que é passado, alguns professores não fazem isso, mas seria interessante ter um local para isso.";
+- "As páginas do livro da escola em que dou aula são fracas e pobres em conteúdo então desenvolvo atividades complementares dessas páginas, então se tivesse um sistema que me desse essas atividades complementares já prontas com base no conteúdo, seria ótimo.";
 - "Aba para perguntas sobre a aula para que alunos que não participaram possam tirar suas dúvidas.";
 - "Planejamento de aulas, apesar disso vir de cada professor ter algo que pudesse ajudar eles seria interessante.";
 
 ---
-
-- "Ter uma função no sistema para reservas de materiais na escola.";
-- "Sistema ter modelos de slides para professores que tenham dificuldade em criar apresentações.";
-- "As páginas do livro da escola em que dou aula são fracas e pobres em conteúdo então desenvolvo atividades complementares dessas páginas, então se tivesse um sistema que me desse essas atividades complementares já prontas com base no conteúdo, seria ótimo.";
 
 ### Diagramas de sequência
 
@@ -105,7 +105,11 @@ Segundo o autor, tecnologia na escola vai além do uso de computadores e interne
 
 ![Diagrama de Sequência - Histórico da Disciplina](../Imagens/diagrama_historico_disciplina.png)
 
+### Ilustração dos protótipos
 
+Apesar da notificação ser algo pra ser enviado automaticamente, o professor terá a opção de enviar lembretes manuais para os pais ou responsáveis, caso queira reforçar alguma data importante.
+
+![Protótipo - Card notificação](../Imagens/prototipo_notificacao.png)
 
 ## Plano de Gerenciamento de Requisitos
 
@@ -141,5 +145,6 @@ Outra história de usuário que foi detalhada é a "Um histórico da disciplina,
 
 ![Diagrama de Sequência - Linha do Tempo da Aula](../Imagens/diagrama_linha_tempo.png).
 
+Para a melhoria da tela de notificações, foi feita uma simples página html para ilustrar como seria, e também foi adicionada a coluna "Entregues" para que o professor possa ver quantos alunos já entregaram a atividade, facilitando o acompanhamento do progresso dos alunos. O código fonte dessa página pode ser visto na pasta "[pages](../pages)" do repositório.
 
-
+![Protótipo - Tela de Notificações](../Imagens/pagina_notificacao.png)

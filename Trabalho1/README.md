@@ -125,6 +125,11 @@ Segundo o autor, tecnologia na escola vai além do uso de computadores e interne
 
 ![Diagrama de Sequência - Histórico da Disciplina](../Imagens/diagrama_historico_disciplina.png)
 
+- "Seria bom poder selecionar e compartilhar uma observação positiva ou um ponto de atenção sobre um aluno com seus pais/responsáveis, para que a família se sinta parte do processo educacional e o meu trabalho seja mais valorizado.";
+  
+![Diagrama de Sequência - Observação Sobre o Aluno Para o Responsável](../Imagens/diagramaObservacoes.png)
+
+
 [Voltar ao topo](#Engenharia-de-Requisitos)
 
 ### Ilustração dos protótipos

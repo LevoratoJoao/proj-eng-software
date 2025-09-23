@@ -70,7 +70,18 @@ Resposta da segunda entrevistada:
 7. Resposta na seção de [Histórias de Usuário](#Historias-de-Usuario).
 8. "Não de forma alguma."
 
-Ambas entrevistadas demonstraram interesse em utilizar um sistema que auxilie no planejamento de aulas e no acompanhamento dos alunos, ressaltando a importância de funcionalidades que facilitem essas tarefas, entretando, uma delas não vê necessidade de funcionalidades voltadas para a comunicação com os responsáveis.
+Resposta da terceira entrevistada:
+
+1. Sim, faço uso de aplicativos como o RCO, para registro de conteúdo e presença dos alunos, Pinterest e google para pesquisa de atividades, plataformas para realização de prjetos relacionados aos conteúdos trabalhados, meet para reuniões e formação de professores.
+2. Meu maior problema é relacionado ao meu conhecimento sobre as tecnologias. Sou de uma geração onde todos os registros eram feitos de forma escrita a mão.
+3. Sim, acredito que mesmo com a minha dificuldade em manusear a tecnologia, ela é extremamente importante para resolver e agilizar o trabalho pedagógico de forma ágil e prática.
+4. Sim, com certeza.
+5. Não, acredito que a tecnologia veio contribuir com a educação, vejo em professores mais jovens que o trabalho educacional é bem mais elaborado e rico, favorecendo o aprendizado dos alunos.
+6. Faço registros diários das atividades planejadas, imagens e registro das observações em arquivos individuais dos alunos.
+7. As funcionalidades relatadas pela professora serão abordadas na seção de [Histórias de Usuário](#Historias-de-Usuario).
+8. Resposta na seção de [Histórias de Usuário](#Historias-de-Usuario).
+
+Todas entrevistadas demonstraram interesse em utilizar um sistema que auxilie no planejamento de aulas e no acompanhamento dos alunos, ressaltando a importância de funcionalidades que facilitem essas tarefas, entretando, uma delas não vê necessidade de funcionalidades voltadas para a comunicação com os responsáveis.
 
 #### Pesquisa
 
@@ -96,6 +107,11 @@ Segundo o autor, tecnologia na escola vai além do uso de computadores e interne
 - "Planejamento de aulas, apesar disso vir de cada professor ter algo que pudesse ajudar eles seria interessante.";
 
 ---
+
+- "Como uma professora, eu quero registrar de forma simples o conteúdo ministrado em cada aula, para que eu tenha um histórico organizado do meu trabalho e possa cumprir com os requisitos do diário de classe (como o RCO).";
+- "Eu quero salvar e categorizar links, textos e arquivos de atividades que encontro na internet (Google, Pinterest), para que eu possa reutilizá-los facilmente em planejamentos futuros sem precisar procurar tudo de novo";
+- "Seria bom poder selecionar e compartilhar uma observação positiva ou um ponto de atenção sobre um aluno com seus pais/responsáveis, para que a família se sinta parte do processo educacional e o meu trabalho seja mais valorizado.";
+- "Sinto falta de um sistema de comunicados gerais para os responsáveis de uma turma (ex: "Lembrete: amanhã é dia da nossa feira de ciências!"), para que a comunicação seja eficiente e reforce a parceria entre escola e família.";
 
 [Voltar ao topo](#Engenharia-de-Requisitos)
 

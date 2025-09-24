@@ -138,16 +138,11 @@ Apesar da notificação ser algo pra ser enviado automaticamente, o professor te
 
 ![Protótipo - Card notificação](../Imagens/prototipo_notificacao.png)
 
-O protótipo do sistema de observações foi implementado em html simples, disponivel na pasta "[pages](../pages)" do repositório (tanto a tela do professor quanto a tela do responsável).
+O protótipo do sistema de observações foi implementado em html simples, disponivel na pasta "[pages](../pages)" do repositório.
 
 Tela do professor (envio de observação):
 
 ![Protótipo - Tela de Observação (professor)](../Imagens/observacoesTelaProfessor.png)
-
-Tela do responsável (recebimento de observação):
-
-![Protótipo - Tela de Observação (responsável)](../Imagens/observacoesTelaResponsavel.png)
-
 
 [Voltar ao topo](#Engenharia-de-Requisitos)
 

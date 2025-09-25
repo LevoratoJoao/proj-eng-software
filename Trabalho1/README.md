@@ -127,9 +127,9 @@ Todas as entrevistadas apontaram ideias envolvendo visualização de históricos
 
 ![Diagrama de Sequência - Histórico da Disciplina](../Imagens/diagrama_historico_disciplina.png)
 
-- "Seria bom poder selecionar e compartilhar uma observação positiva ou um ponto de atenção sobre um aluno com seus pais/responsáveis, para que a família se sinta parte do processo educacional e o meu trabalho seja mais valorizado.";
+- "Eu quero salvar e categorizar links, textos e arquivos de atividades que encontro na internet (Google, Pinterest), para que eu possa reutilizá-los facilmente em planejamentos futuros sem precisar procurar tudo de novo";
   
-![Diagrama de Sequência - Observação Sobre o Aluno Para o Responsável](../Imagens/diagramaObservacoesV1.png)
+![Diagrama de Sequência - Categorizar Links, Textos e Arquivos Para a Aula](../Imagens/diagramaLinks.png.png)
 
 
 [Voltar ao topo](#Engenharia-de-Requisitos)

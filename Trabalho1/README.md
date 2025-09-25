@@ -138,6 +138,9 @@ Apesar da notificação ser algo pra ser enviado automaticamente, o professor te
 
 ![Protótipo - Card notificação](../Imagens/prototipo_notificacao.png)
 
+Para o professor realizar o registro da aula, ele deverá preencher o formulário com as informações que serão gravadas no banco de dados.
+![Protótipo - Tela de Registro de Aula](../Imagens/prototipo_registro_aula.png)
+
 O protótipo do sistema de observações foi implementado em html simples, disponivel na pasta "[pages](../pages)" do repositório.
 
 Tela do professor (envio de observação):

@@ -129,7 +129,7 @@ Todas as entrevistadas apontaram ideias envolvendo visualização de históricos
 
 - "Eu quero salvar e categorizar links, textos e arquivos de atividades que encontro na internet (Google, Pinterest), para que eu possa reutilizá-los facilmente em planejamentos futuros sem precisar procurar tudo de novo";
   
-![Diagrama de Sequência - Categorizar Links, Textos e Arquivos Para a Aula](../Imagens/diagramaLinks.png.png)
+![Diagrama de Sequência - Categorizar Links, Textos e Arquivos Para a Aula](../Imagens/diagramaLinks.png)
 
 
 [Voltar ao topo](#Engenharia-de-Requisitos)

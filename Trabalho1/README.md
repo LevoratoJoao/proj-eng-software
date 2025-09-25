@@ -144,11 +144,11 @@ Para o professor realizar o registro da aula, ele deverá preencher o formulári
 
 ![Protótipo - Tela de Registro de Aula](../Imagens/prototipo_registro_aula.png)
 
-O protótipo do sistema de observações foi implementado em html simples, disponivel na pasta "[pages](../pages)" do repositório.
+O protótipo do sistema de observações foi ilustrado utilizando um design excalidraw simples.
 
 Tela do professor (envio de observação):
 
-![Protótipo - Tela de Observação (professor)](../Imagens/observacoesTelaProfessor.png)
+![Protótipo - Tela de Observação (professor)](../Imagens/PrototExcalidrawV1.png)
 
 [Voltar ao topo](#Engenharia-de-Requisitos)
 
@@ -197,5 +197,9 @@ A funcionalidade de "Compartilhar Observação com Responsável" também foi apr
 Para a melhoria da tela de notificações, foi feita uma simples página html para ilustrar como seria, e também foi adicionada a coluna "Entregues" para que o professor possa ver quantos alunos já entregaram a atividade, facilitando o acompanhamento do progresso dos alunos. O código fonte dessa página pode ser visto na pasta "[pages](../pages)" do repositório.
 
 ![Protótipo - Tela de Notificações](../Imagens/pagina_notificacao.png)
+
+Como melhoria da tela de observações, foi desenvolvido um protótipo em HTML para melhor visualização da ferramenta. O código fonte dessa página está disponível na pasta "[pages](../pages)" do repositório.
+
+![Protótipo - Tela de Observações](../Imagens/observacoesTelaProfessor.png)
 
 [Voltar ao topo](#Engenharia-de-Requisitos)

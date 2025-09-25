@@ -198,6 +198,11 @@ Para a melhoria da tela de notificações, foi feita uma simples página html pa
 
 ![Protótipo - Tela de Notificações](../Imagens/pagina_notificacao.png)
 
+De melhoria da tela de registro de aulas, foi desenvolvido uma página html para demonstrar como seria seu funcionamento. O código fonte está disponível em 
+"[pages](../pages)" do repositório.
+
+![Protótipo - Tela de Registro de Aulas](../Imagens/pagina_registro_aula.png)
+
 Como melhoria da tela de observações, foi desenvolvido um protótipo em HTML para melhor visualização da ferramenta. O código fonte dessa página está disponível na pasta "[pages](../pages)" do repositório.
 
 ![Protótipo - Tela de Observações](../Imagens/observacoesTelaProfessor.png)

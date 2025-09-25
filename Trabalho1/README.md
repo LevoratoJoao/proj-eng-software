@@ -127,7 +127,7 @@ Segundo o autor, tecnologia na escola vai além do uso de computadores e interne
 
 - "Seria bom poder selecionar e compartilhar uma observação positiva ou um ponto de atenção sobre um aluno com seus pais/responsáveis, para que a família se sinta parte do processo educacional e o meu trabalho seja mais valorizado.";
   
-![Diagrama de Sequência - Observação Sobre o Aluno Para o Responsável](../Imagens/diagramaObservacoes.png)
+![Diagrama de Sequência - Observação Sobre o Aluno Para o Responsável](../Imagens/diagramaObservacoesV1.png)
 
 
 [Voltar ao topo](#Engenharia-de-Requisitos)
@@ -181,6 +181,10 @@ Uma das melhorias feitas foi com relação a história de usuário "Lembrete de 
 Outra história de usuário que foi detalhada é a "Um histórico da disciplina, faço registro das aulas, o que acontece e o que é passado, alguns professores não fazem isso, mas seria interessante ter um local para isso." onde será feito uma linha do tempo da aula, o professor além de ter uma visualização melhor do que foi passado em cada aula, também poderá ver o tempo gasto em cada ponto e adicionar comentários adicionais sobre dúvidas ou coisas que ocorreram no decorrer da aula.
 
 ![Diagrama de Sequência - Linha do Tempo da Aula](../Imagens/diagrama_linha_tempo.png).
+
+A funcionalidade de "Compartilhar Observação com Responsável" também foi aprimorada, evoluindo de uma versão inicial (V1) para uma versão mais robusta e completa (V2). A principal melhoria introduzida na V2 é a implementação de um sistema de persistência para as mensagens enviadas. Com isso, além de apenas disparar a comunicação em tempo real como na V1, o sistema passa a salvar um histórico completo de todas as observações no banco de dados, garantindo que o professor tenha um registro detalhado e confiável das interações para consulta futura. Adicionalmente, a arquitetura foi fortalecida com a introdução de um serviço dedicado para notificações, separando as responsabilidades do sistema e tornando o processo de envio de mensagens mais escalável e seguro.
+
+![Diagrama de Sequência - Observação Sobre o Aluno Para o Responsável](../Imagens/diagramaObservacoesV2.png)
 
 Para a melhoria da tela de notificações, foi feita uma simples página html para ilustrar como seria, e também foi adicionada a coluna "Entregues" para que o professor possa ver quantos alunos já entregaram a atividade, facilitando o acompanhamento do progresso dos alunos. O código fonte dessa página pode ser visto na pasta "[pages](../pages)" do repositório.
 

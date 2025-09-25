@@ -113,6 +113,8 @@ Segundo o autor, tecnologia na escola vai além do uso de computadores e interne
 - "Seria bom poder selecionar e compartilhar uma observação positiva ou um ponto de atenção sobre um aluno com seus pais/responsáveis, para que a família se sinta parte do processo educacional e o meu trabalho seja mais valorizado.";
 - "Sinto falta de um sistema de comunicados gerais para os responsáveis de uma turma (ex: "Lembrete: amanhã é dia da nossa feira de ciências!"), para que a comunicação seja eficiente e reforce a parceria entre escola e família.";
 
+Todas as entrevistadas apontaram ideias envolvendo visualização de históricos das aulas, registro de conteúdo e comunicação com os responsáveis, reforçando a importância dessas funcionalidades no sistema proposto. Suas semelhanças e diferenças foram analisadas para a criação de histórias de usuário que atendam às necessidades gerais identificadas, essas melhorias serão detalhadas na seção de [Requisitos Versão 2](#Documento-de-requisitos-v2).
+
 [Voltar ao topo](#Engenharia-de-Requisitos)
 
 ### Diagramas de sequência
@@ -139,6 +141,7 @@ Apesar da notificação ser algo pra ser enviado automaticamente, o professor te
 ![Protótipo - Card notificação](../Imagens/prototipo_notificacao.png)
 
 Para o professor realizar o registro da aula, ele deverá preencher o formulário com as informações que serão gravadas no banco de dados.
+
 ![Protótipo - Tela de Registro de Aula](../Imagens/prototipo_registro_aula.png)
 
 O protótipo do sistema de observações foi implementado em html simples, disponivel na pasta "[pages](../pages)" do repositório.
@@ -177,11 +180,11 @@ Esses "Epics" são divididos em "Tarefas" menores, que representam atividades es
 
 ## Documento de Requisitos (V2)
 
-Uma das melhorias feitas foi com relação a história de usuário "Lembrete de Avaliações", onde foi adicionado a funcionalidade de notificações via email, para que os pais ou responsáveis possam receber lembretes automáticos sobre avaliações e atividades dos alunos. Essa funcionalidade visa melhorar a comunicação entre a escola e os responsáveis, garantindo que estejam sempre informados sobre o desempenho acadêmico dos alunos. Além disso, a professora não precisará mais se preocupar em lembrar os pais sobre essas datas importantes, pois o sistema fará isso automaticamente evitando contatos direto com os pais, que alguns professores podem ter receio de fazer (como visto na entrevista).
+Uma das melhorias feitas foi com relação as histórias de usuário "Lembrete de Avaliações" e "Comunicados gerais", onde foi adicionado a funcionalidade de notificações via email, para que os pais ou responsáveis possam receber lembretes automáticos sobre avaliações, tividades e eventos dos alunos. Essa funcionalidade visa melhorar a comunicação entre a escola e os responsáveis, garantindo que estejam sempre informados sobre o desempenho acadêmico dos alunos. Além disso, a professora não precisará mais se preocupar em lembrar os pais sobre essas datas importantes, pois o sistema fará isso automaticamente evitando contatos direto com os pais, que alguns professores podem ter receio de fazer (como visto na entrevista).
 
 ![Diagrama de Sequência - Notificação por Email](../Imagens/diagrama_email.png)
 
-Outra história de usuário que foi detalhada é a "Um histórico da disciplina, faço registro das aulas, o que acontece e o que é passado, alguns professores não fazem isso, mas seria interessante ter um local para isso." onde será feito uma linha do tempo da aula, o professor além de ter uma visualização melhor do que foi passado em cada aula, também poderá ver o tempo gasto em cada ponto e adicionar comentários adicionais sobre dúvidas ou coisas que ocorreram no decorrer da aula.
+Outras histórias de usuário que foram detalhada é a "Um histórico da disciplina, faço registro das aulas, o que acontece e o que é passado, alguns professores não fazem isso, mas seria interessante ter um local para isso." e "Como uma professora, eu quero registrar de forma simples o conteúdo ministrado em cada aula, para que eu tenha um histórico organizado do meu trabalho e possa cumprir com os requisitos do diário de classe (como o RCO)." onde será feito uma linha do tempo da aula, o professor além de ter uma visualização melhor do que foi passado em cada aula, também poderá ver o tempo gasto em cada ponto e adicionar comentários adicionais sobre dúvidas ou coisas que ocorreram no decorrer da aula.
 
 ![Diagrama de Sequência - Linha do Tempo da Aula](../Imagens/diagrama_linha_tempo.png).
 

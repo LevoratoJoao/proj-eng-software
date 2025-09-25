@@ -154,7 +154,9 @@ Tela do professor (envio de observação):
 
 ## Plano de Gerenciamento de Requisitos
 
-Visando garantir que todos os requisitos identificados sejam devidamente documentados, rastreados e gerenciados ao longo do ciclo de vida do projeto, foram criados um repositório no GitHub e um quadro no Jira, para melhor visualização das atividades realizadas e um histórico de mudanças. Esses recursos permitem a organização eficiente das informações, facilitando o acompanhamento do progresso e a comunicação entre os membros da equipe.
+Como mencionado anteriormente, as entrevistadas apontaram ideias e dificuldades semelhantes, por isso, analisando suas necessidades e visando atender as funcionalidades mais citadas e exigidas, deu-se prioridade para as HUs relacionadas ao registro de aulas com histórico atrelado e comunicação com os pais e responsáveis dos alunos.  
+
+Para garantir que todos os requisitos identificados sejam devidamente documentados, rastreados e gerenciados ao longo do ciclo de vida do projeto, foram criados um repositório no GitHub e um quadro no Jira, para melhor visualização das atividades realizadas e um histórico de mudanças. Esses recursos permitem a organização eficiente das informações, facilitando o acompanhamento do progresso e a comunicação entre os membros da equipe.
 
 Para o GitHub, o foco na documentação foi utilizando arquivos Markdown, suas edições foram feitas em partes conforme desenvolvimento do projeto para manter o controle de versões, facilitando na busca do historico e de mudanças feitas. Além disso esse repositório também será utilizado para armazenar o código-fonte do sistema, garantindo que todas as alterações sejam registradas e possam ser revertidas se necessário.
 

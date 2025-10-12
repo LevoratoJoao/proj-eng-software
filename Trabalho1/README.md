@@ -11,7 +11,7 @@
   - [Diagramas de sequência](#Diagramas-de-sequência)
   - [Ilustração dos protótipos](#Ilustração-dos-protótipos)
 - [Plano de Gerenciamento de Requisitos](#Plano-de-Gerenciamento-de-Requisitos)
-- [Requisitos Versão 2](#Documento-de-Requisitos-(V2))
+- [Requisitos Versão 2](#Documento-de-requisitos-v2)
 
 ## Documento de Requisitos (V1)
 
@@ -70,13 +70,26 @@ Resposta da segunda entrevistada:
 7. Resposta na seção de [Histórias de Usuário](#Historias-de-Usuario).
 8. "Não de forma alguma."
 
-Ambas entrevistadas demonstraram interesse em utilizar um sistema que auxilie no planejamento de aulas e no acompanhamento dos alunos, ressaltando a importância de funcionalidades que facilitem essas tarefas, entretando, uma delas não vê necessidade de funcionalidades voltadas para a comunicação com os responsáveis.
+Resposta da terceira entrevistada:
+
+1. Sim, faço uso de aplicativos como o RCO, para registro de conteúdo e presença dos alunos, Pinterest e google para pesquisa de atividades, plataformas para realização de prjetos relacionados aos conteúdos trabalhados, meet para reuniões e formação de professores.
+2. Meu maior problema é relacionado ao meu conhecimento sobre as tecnologias. Sou de uma geração onde todos os registros eram feitos de forma escrita a mão.
+3. Sim, acredito que mesmo com a minha dificuldade em manusear a tecnologia, ela é extremamente importante para resolver e agilizar o trabalho pedagógico de forma ágil e prática.
+4. Sim, com certeza.
+5. Não, acredito que a tecnologia veio contribuir com a educação, vejo em professores mais jovens que o trabalho educacional é bem mais elaborado e rico, favorecendo o aprendizado dos alunos.
+6. Faço registros diários das atividades planejadas, imagens e registro das observações em arquivos individuais dos alunos.
+7. As funcionalidades relatadas pela professora serão abordadas na seção de [Histórias de Usuário](#Historias-de-Usuario).
+8. Resposta na seção de [Histórias de Usuário](#Historias-de-Usuario).
+
+Todas entrevistadas demonstraram interesse em utilizar um sistema que auxilie no planejamento de aulas e no acompanhamento dos alunos, ressaltando a importância de funcionalidades que facilitem essas tarefas, entretando, uma delas não vê necessidade de funcionalidades voltadas para a comunicação com os responsáveis.
 
 #### Pesquisa
 
 Também foi feita uma pesquisa de artigos e publicações acadêmicas relacionadas ao uso de tecnologia na educação, com o intuito de identificar tendências, desafios e oportunidades nesse campo. O artigo utilizado como referência destaca que, no desenvolvimento de sistemas escolares para apoiar professores e facilitar o acompanhamento dos pais, é fundamental considerar o que José Moran discute em [**Gestão inovadora da escola com tecnologias**](https://moran.eca.usp.br/textos/tecnologias_eduacacao/gestao.pdf).
 
 Segundo o autor, tecnologia na escola vai além do uso de computadores e internet, abrangendo também materiais, metodologias de ensino e a própria organização do espaço escolar, todos voltados para potencializar a aprendizagem (MORAN, 2000). Dessa forma, o sistema proposto deve ser entendido como uma ferramenta integradora, capaz de unir aspectos administrativos e pedagógicos, oferecendo funcionalidades como cadastro de alunos, planejamento de aulas e comunicação eficiente entre professores e responsáveis, alinhando-se às necessidades identificadas nas entrevistas realizadas.
+
+[Voltar ao topo](#Engenharia-de-Requisitos)
 
 ### Historias de Usuario
 
@@ -95,6 +108,15 @@ Segundo o autor, tecnologia na escola vai além do uso de computadores e interne
 
 ---
 
+- "Como uma professora, eu quero registrar de forma simples o conteúdo ministrado em cada aula, para que eu tenha um histórico organizado do meu trabalho e possa cumprir com os requisitos do diário de classe (como o RCO).";
+- "Eu quero salvar e categorizar links, textos e arquivos de atividades que encontro na internet (Google, Pinterest), para que eu possa reutilizá-los facilmente em planejamentos futuros sem precisar procurar tudo de novo";
+- "Seria bom poder selecionar e compartilhar uma observação positiva ou um ponto de atenção sobre um aluno com seus pais/responsáveis, para que a família se sinta parte do processo educacional e o meu trabalho seja mais valorizado.";
+- "Sinto falta de um sistema de comunicados gerais para os responsáveis de uma turma (ex: "Lembrete: amanhã é dia da nossa feira de ciências!"), para que a comunicação seja eficiente e reforce a parceria entre escola e família.";
+
+Todas as entrevistadas apontaram ideias envolvendo visualização de históricos das aulas, registro de conteúdo e comunicação com os responsáveis, reforçando a importância dessas funcionalidades no sistema proposto. Suas semelhanças e diferenças foram analisadas para a criação de histórias de usuário que atendam às necessidades gerais identificadas, essas melhorias serão detalhadas na seção de [Requisitos Versão 2](#Documento-de-requisitos-v2).
+
+[Voltar ao topo](#Engenharia-de-Requisitos)
+
 ### Diagramas de sequência
 
 - "Algo que ajude os pais a lembrar das avaliações e atividades.":
@@ -105,15 +127,36 @@ Segundo o autor, tecnologia na escola vai além do uso de computadores e interne
 
 ![Diagrama de Sequência - Histórico da Disciplina](../Imagens/diagrama_historico_disciplina.png)
 
+- "Eu quero salvar e categorizar links, textos e arquivos de atividades que encontro na internet (Google, Pinterest), para que eu possa reutilizá-los facilmente em planejamentos futuros sem precisar procurar tudo de novo";
+  
+![Diagrama de Sequência - Categorizar Links, Textos e Arquivos Para a Aula](../Imagens/diagramaLinks.png)
+
+
+[Voltar ao topo](#Engenharia-de-Requisitos)
+
 ### Ilustração dos protótipos
 
 Apesar da notificação ser algo pra ser enviado automaticamente, o professor terá a opção de enviar lembretes manuais para os pais ou responsáveis, caso queira reforçar alguma data importante.
 
 ![Protótipo - Card notificação](../Imagens/prototipo_notificacao.png)
 
+Para o professor realizar o registro da aula, ele deverá preencher o formulário com as informações que serão gravadas no banco de dados.
+
+![Protótipo - Tela de Registro de Aula](../Imagens/prototipo_registro_aula.png)
+
+O protótipo do sistema de observações foi ilustrado utilizando um design excalidraw simples.
+
+Tela do professor (envio de observação):
+
+![Protótipo - Tela de Observação (professor)](../Imagens/PrototExcalidrawV1.png)
+
+[Voltar ao topo](#Engenharia-de-Requisitos)
+
 ## Plano de Gerenciamento de Requisitos
 
-Visando garantir que todos os requisitos identificados sejam devidamente documentados, rastreados e gerenciados ao longo do ciclo de vida do projeto, foram criados um repositório no GitHub e um quadro no Jira, para melhor visualização das atividades realizadas e um histórico de mudanças. Esses recursos permitem a organização eficiente das informações, facilitando o acompanhamento do progresso e a comunicação entre os membros da equipe.
+Como mencionado anteriormente, as entrevistadas apontaram ideias e dificuldades semelhantes, por isso, analisando suas necessidades e visando atender as funcionalidades mais citadas e exigidas, deu-se prioridade para as HUs relacionadas ao registro de aulas com histórico atrelado e comunicação com os pais e responsáveis dos alunos.  
+
+Para garantir que todos os requisitos identificados sejam devidamente documentados, rastreados e gerenciados ao longo do ciclo de vida do projeto, foram criados um repositório no GitHub e um quadro no Jira, para melhor visualização das atividades realizadas e um histórico de mudanças. Esses recursos permitem a organização eficiente das informações, facilitando o acompanhamento do progresso e a comunicação entre os membros da equipe.
 
 Para o GitHub, o foco na documentação foi utilizando arquivos Markdown, suas edições foram feitas em partes conforme desenvolvimento do projeto para manter o controle de versões, facilitando na busca do historico e de mudanças feitas. Além disso esse repositório também será utilizado para armazenar o código-fonte do sistema, garantindo que todas as alterações sejam registradas e possam ser revertidas se necessário.
 
@@ -135,16 +178,34 @@ Esses "Epics" são divididos em "Tarefas" menores, que representam atividades es
 
 ![Cronograma](../Imagens/cronograma_jira.png)
 
+[Voltar ao topo](#Engenharia-de-Requisitos)
+
 ## Documento de Requisitos (V2)
 
-Uma das melhorias feitas foi com relação a história de usuário "Lembrete de Avaliações", onde foi adicionado a funcionalidade de notificações via email, para que os pais ou responsáveis possam receber lembretes automáticos sobre avaliações e atividades dos alunos. Essa funcionalidade visa melhorar a comunicação entre a escola e os responsáveis, garantindo que estejam sempre informados sobre o desempenho acadêmico dos alunos. Além disso, a professora não precisará mais se preocupar em lembrar os pais sobre essas datas importantes, pois o sistema fará isso automaticamente evitando contatos direto com os pais, que alguns professores podem ter receio de fazer (como visto na entrevista).
+Uma das melhorias feitas foi com relação as histórias de usuário "Lembrete de Avaliações" e "Comunicados gerais", onde foi adicionado a funcionalidade de notificações via email, para que os pais ou responsáveis possam receber lembretes automáticos sobre avaliações, tividades e eventos dos alunos. Essa funcionalidade visa melhorar a comunicação entre a escola e os responsáveis, garantindo que estejam sempre informados sobre o desempenho acadêmico dos alunos. Além disso, a professora não precisará mais se preocupar em lembrar os pais sobre essas datas importantes, pois o sistema fará isso automaticamente evitando contatos direto com os pais, que alguns professores podem ter receio de fazer (como visto na entrevista).
 
 ![Diagrama de Sequência - Notificação por Email](../Imagens/diagrama_email.png)
 
-Outra história de usuário que foi detalhada é a "Um histórico da disciplina, faço registro das aulas, o que acontece e o que é passado, alguns professores não fazem isso, mas seria interessante ter um local para isso." onde será feito uma linha do tempo da aula, o professor além de ter uma visualização melhor do que foi passado em cada aula, também poderá ver o tempo gasto em cada ponto e adicionar comentários adicionais sobre dúvidas ou coisas que ocorreram no decorrer da aula.
+Outras histórias de usuário que foram detalhada é a "Um histórico da disciplina, faço registro das aulas, o que acontece e o que é passado, alguns professores não fazem isso, mas seria interessante ter um local para isso." e "Como uma professora, eu quero registrar de forma simples o conteúdo ministrado em cada aula, para que eu tenha um histórico organizado do meu trabalho e possa cumprir com os requisitos do diário de classe (como o RCO)." onde será feito uma linha do tempo da aula, o professor além de ter uma visualização melhor do que foi passado em cada aula, também poderá ver o tempo gasto em cada ponto e adicionar comentários adicionais sobre dúvidas ou coisas que ocorreram no decorrer da aula.
 
 ![Diagrama de Sequência - Linha do Tempo da Aula](../Imagens/diagrama_linha_tempo.png).
+
+A funcionalidade de "Compartilhar Observação com Responsável" também foi aprimorada, evoluindo de uma versão inicial (V1) para uma versão mais robusta e completa (V2). A principal melhoria introduzida na V2 é a implementação de um sistema de persistência para as mensagens enviadas. Com isso, além de apenas disparar a comunicação em tempo real como na V1, o sistema passa a salvar um histórico completo de todas as observações no banco de dados, garantindo que o professor tenha um registro detalhado e confiável das interações para consulta futura. Adicionalmente, a arquitetura foi fortalecida com a introdução de um serviço dedicado para notificações, separando as responsabilidades do sistema e tornando o processo de envio de mensagens mais escalável e seguro.
+
+![Diagrama de Sequência - Observação Sobre o Aluno Para o Responsável](../Imagens/diagramaObservacoesV2.png)
 
 Para a melhoria da tela de notificações, foi feita uma simples página html para ilustrar como seria, e também foi adicionada a coluna "Entregues" para que o professor possa ver quantos alunos já entregaram a atividade, facilitando o acompanhamento do progresso dos alunos. O código fonte dessa página pode ser visto na pasta "[pages](../pages)" do repositório.
 
 ![Protótipo - Tela de Notificações](../Imagens/pagina_notificacao.png)
+
+De melhorias da tela de registro de aula e linha do tempo das aulas, foram desenvolvidos páginas html para demonstrar como seria seu funcionamento. O código fonte está disponível em "[pages](../pages)" do repositório.
+
+![Protótipo - Tela de Registro de Aulas](../Imagens/pagina_registro_aula.png)
+
+![Protótipo - Tela de Linha do Tempo dos Registros](../Imagens/pagina_linha_tempo.png)
+
+Como melhoria da tela de observações, foi desenvolvido um protótipo em HTML para melhor visualização da ferramenta. O código fonte dessa página está disponível na pasta "[pages](../pages)" do repositório.
+
+![Protótipo - Tela de Observações](../Imagens/observacoesTelaProfessor.png)
+
+[Voltar ao topo](#Engenharia-de-Requisitos)

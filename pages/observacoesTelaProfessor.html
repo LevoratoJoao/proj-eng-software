@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protótipo - Enviar Observação</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        .aluno-info {
+            background-color: #e9ecef;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        textarea {
+            width: 95%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            resize: vertical;
+            min-height: 120px;
+        }
+        .tipo-observacao {
+            display: flex;
+            gap: 20px;
+        }
+        .btn-enviar {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-enviar:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Enviar Observação Pedagógica</h2>
+        
+        <div class="aluno-info">
+            <strong>Aluno(a):</strong> Mariana Silva
+        </div>
+
+        <div class="form-group">
+            <label>Tipo de Observação:</label>
+            <div class="tipo-observacao">
+                <label for="positivo">
+                    <input type="radio" id="positivo" name="tipo" value="positivo" checked> Ponto Positivo
+                </label>
+                <label for="atencao">
+                    <input type="radio" id="atencao" name="tipo" value="atencao"> Ponto de Atenção
+                </label>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="mensagem">Mensagem para o Responsável:</label>
+            <textarea id="mensagem" placeholder="Digite aqui a sua observação..."></textarea>
+        </div>
+
+        <button class="btn-enviar" onclick="alert('Observação enviada com sucesso!')">
+            Enviar para o Responsável
+        </button>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linha do Tempo de Registros</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<style>
+.timeline {
+    margin-bottom: 32px;
+}
+
+.timeline h3 {
+    color: #667eea;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.item {
+    padding: 16px 0;
+    border-left: 3px solid #e2e8f0;
+    margin-left: 16px;
+    padding-left: 32px;
+    position: relative;
+}
+
+.item::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background-color: #667eea;
+    border-radius: 50%;
+}
+
+.data {
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.topico {
+    color: #1e293b;
+    margin: 4px 0;
+}
+
+.detalhes {
+    font-size: 14px;
+    color: #64748b;
+}
+</style>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h1>Registro de Aulas</h1>
+                    <a class="btn btn-primary" href="registro-aula.html">Registrar Aula</a>
+                </div>
+                <p>Acompanhamento dos registros detalhados de suas aulas</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Linha do Tempo das Aulas</h3>
+                </div>
+            
+                <div class="timeline">
+                    <h3>Matemática</h3>
+                    
+                    <div class="item">
+                        <div class="content">
+                            <div class="data">23/09/2025</div>
+                            <div class="topicp">Operações com Frações</div>
+                            <div class="detalhes">5º A • 50min</div>
+                        </div>
+                    </div>
+                    
+                    <div class="item">
+                        <div class="content">
+                            <div class="data">18/09/2025</div>
+                            <div class="topico">Introdução às Frações</div>
+                            <div class="detalhes">5º A • 45min</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline">
+                    <h3>Português</h3>
+                    <div class="item">
+                        <div class="content">
+                            <div class="data">22/09/2025</div>
+                            <div class="topico">Análise Sintática - Sujeito</div>
+                            <div class="detalhes">6º B • 45min</div>
+                        </div>
+                    </div>
+                    
+                    <div class="item">
+                        <div class="content">
+                            <div class="data">17/09/2025</div>
+                            <div class="topico">Classes de Palavras - Verbos</div>
+                            <div class="detalhes">6º B • 50min</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

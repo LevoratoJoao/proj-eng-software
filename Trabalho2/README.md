@@ -31,5 +31,17 @@ Esta seção apresenta o plano de gerenciamento da qualidade do projeto, detalha
    - Documentação das APIs (usando Swagger ou similar).
    - Atualização do README com instruções de configuração, execução e contribuição.
 
+## Arquitetura de Software
+
+A arquitetura do sistema será baseada em uma arquitetura em camadas (layered architecture), que separa as responsabilidades do sistema em diferentes níveis. Sua escolha se deve à sua simplicidade, facilidade de manutenção e escalabilidade, adequada para aplicações web com lógica de negócio intermediária e persistência de dados.
+
+Estrutura em Camadas:
+
+| Camada | Responsabilidade |
+|--------|------------------|
+| Controller | Gerencia as requisições HTTP, interage com a camada de serviço e retorna respostas ao cliente. |
+| Service | Contém a lógica de negócio, processa dados e aplica regras de negócio. |
+| Repository | Responsável pela interação com o banco de dados, realizando operações CRUD. |
+| Model | Define as entidades do sistema e suas relações. |
 
 

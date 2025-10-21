@@ -1,8 +1,11 @@
 # Modelagem e Desenvolvimento
 
 - [Gerência de Qualidade](#Gerência-de-Qualidade)
-   - [Tecnologias e Ferramentas](#Tecnologias-e-Ferramentas)
-   - [Regras e Padrões de Desenvolvimento](#Regras-e-Padrões-de-Desenvolvimento)
+  - [Tecnologias e Ferramentas](#Tecnologias-e-Ferramentas)
+  - [Regras e Padrões de Desenvolvimento](#Regras-e-Padrões-de-Desenvolvimento)
+- [Arquitetura de Software](#Arquitetura-de-Software)
+- [Padrões de Projeto](#Padrões-de-Projeto)
+- [Como Executar o Projeto](./codigo/README.md)
 
 ## Gerência de Qualidade
 
@@ -37,11 +40,9 @@ A arquitetura do sistema será baseada em uma arquitetura em camadas (layered ar
 
 Estrutura em Camadas:
 
-| Camada | Responsabilidade |
-|--------|------------------|
+| Camada     | Responsabilidade                                                                               |
+| ---------- | ---------------------------------------------------------------------------------------------- |
 | Controller | Gerencia as requisições HTTP, interage com a camada de serviço e retorna respostas ao cliente. |
-| Service | Contém a lógica de negócio, processa dados e aplica regras de negócio. |
-| Repository | Responsável pela interação com o banco de dados, realizando operações CRUD. |
-| Model | Define as entidades do sistema e suas relações. |
-
-
+| Service    | Contém a lógica de negócio, processa dados e aplica regras de negócio.                         |
+| Repository | Responsável pela interação com o banco de dados, realizando operações CRUD.                    |
+| Model      | Define as entidades do sistema e suas relações.                                                |

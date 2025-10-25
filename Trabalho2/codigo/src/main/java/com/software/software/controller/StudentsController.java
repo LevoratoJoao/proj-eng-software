@@ -1,6 +1,6 @@
 package com.software.software.controller;
 
-import com.software.software.services.AlunoService;
+import com.software.software.services.StudentsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/alunos")
-public class AlunosController {
+@RequestMapping("/students")
+public class StudentsController {
 
     @Autowired
-    private AlunoService alunoService;
+    private StudentsService studentsService;
 
-    @GetMapping("/{id}/responsavel-email")
-    public ResponseEntity<String> getEmailResponsavel(@PathVariable Long id) {
-        return ResponseEntity.ok(alunoService.getEmailResponsavelByAlunoId(id));
+    @GetMapping("/{id}/parent-email")
+    public ResponseEntity<String> getEmailParent(@PathVariable Long id) {
+        return ResponseEntity.ok(studentsService.getEmailParentByStudentId(id));
     }
 }

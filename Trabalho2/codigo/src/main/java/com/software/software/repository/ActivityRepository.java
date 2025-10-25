@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface ActivityRepository extends JpaRepository<Activity, Long> {
 
-    @Query("SELECT a FROM Activity a WHERE a.dueDate < :dataEntrega")
-    List<Activity> findActivitiesWithDueDateLessThanOneDay(LocalDate dataEntrega);
+    @Query("SELECT a FROM Activity a WHERE a.dueDate = :tomorrow")
+    List<Activity> findActivitiesDueTomorrow(LocalDate tomorrow);
+
 }

@@ -16,6 +16,6 @@ public class ActivityService {
     private final ActivityRepository atividadeRepository;
 
     public List<Activity> getOverdueActivities(LocalDate currentDate) {
-        return atividadeRepository.findActivitiesWithDueDateLessThanOneDay(currentDate);
+        return atividadeRepository.findActivitiesDueTomorrow(currentDate);
     }
 }

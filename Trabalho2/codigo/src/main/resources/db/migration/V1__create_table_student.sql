@@ -21,3 +21,28 @@ INSERT INTO Students
     'responsavel.maria@email.com',
     '11888888888'
 );
+
+CREATE TABLE Activity (
+    activity_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    due_date DATE NOT NULL,
+    description VARCHAR(100) NOT NULL,
+    bimester INT NOT NULL,
+    student_id BIGINT,
+    FOREIGN KEY (student_id) REFERENCES Students(student_id)
+);
+
+INSERT INTO Activity
+    (due_date,
+     description,
+     bimester,
+     student_id
+) VALUES (
+    '2025-10-26',
+    'Math Homework',
+    2,
+    1
+), ('2025-10-26',
+    'Science Project',
+    2,
+    2
+);

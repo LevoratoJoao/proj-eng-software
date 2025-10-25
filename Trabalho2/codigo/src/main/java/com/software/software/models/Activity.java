@@ -29,4 +29,8 @@ public class Activity {
 
     @Column(name = "bimester", nullable = false)
     private Integer bimester;
+
+    @ManyToOne
+    @JoinColumn(name = "student_id")
+    private Students student;
 }

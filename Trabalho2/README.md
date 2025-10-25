@@ -36,7 +36,9 @@ Esta seção apresenta o plano de gerenciamento da qualidade do projeto, detalha
 
 ## Arquitetura de Software
 
-A arquitetura do sistema será baseada em uma arquitetura em camadas (layered architecture), que separa as responsabilidades do sistema em diferentes níveis. Sua escolha se deve à sua simplicidade, facilidade de manutenção e escalabilidade, adequada para aplicações web com lógica de negócio intermediária e persistência de dados.
+A arquitetura do sistema será baseada em uma arquitetura em camadas (layered architecture), que separa as responsabilidades do sistema em diferentes níveis. Sua escolha se deve à sua simplicidade, facilidade de manutenção e escalabilidade, adequada para aplicações web com lógica de negócio intermediária e persistência de dados. Em caso de futuras expansões (como a inclusão de módulos de pais/responsáveis ou dashboards de desempenho), novas camadas ou serviços podem ser integrados sem impacto significativo nas demais partes do sistema.
+
+Outro ponto determinante para essa escolha foi a compatibilidade natural da arquitetura em camadas com o framework Spring Boot, o qual já fornece mecanismos bem definidos para controladores, serviços e repositórios, facilitando a padronização do código e a divisão de tarefas entre os membros da equipe.
 
 Estrutura em Camadas:
 
@@ -46,3 +48,13 @@ Estrutura em Camadas:
 | Service    | Contém a lógica de negócio, processa dados e aplica regras de negócio.                         |
 | Repository | Responsável pela interação com o banco de dados, realizando operações CRUD.                    |
 | Model      | Define as entidades do sistema e suas relações.                                                |
+
+## Padrões de Projeto
+
+### Observer Pattern
+
+O Observer Pattern foi adotado para a funcionalidade de notificações automáticas aos responsáveis pelos alunos quando uma atividade ou avaliação está próxima do prazo de entrega.
+
+Essa implementação permite que o sistema seja facilmente expandido, adicionando novos tipos de notificações (como SMS, push notifications ou alertas internos) sem alterar a lógica central. Isso garante baixo acoplamento, alta extensibilidade e reuso de código.
+
+Para sua implementação, foram criadas interfaces para o Subject (por exemplo, Atividade) e Observer (por exemplo, NotificacaoEmail). A classe `ActivityNotificationService` mantém uma lista de observadores, com o Spring Scheduler nós programamos verificações periódicas e quando uma atividade está próxima do prazo, o serviço notifica todos os observadores registrados, cada observador então executa o `onActivityOverdue` para enviar a notificação.

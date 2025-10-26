@@ -1,12 +1,11 @@
 package com.software.software.controller;
 
+import com.software.software.controller.dtos.students.RequestStudentDto;
+import com.software.software.models.Students;
 import com.software.software.services.StudentsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/students")
@@ -18,5 +17,11 @@ public class StudentsController {
     @GetMapping("/{id}/parent-email")
     public ResponseEntity<String> getEmailParent(@PathVariable Long id) {
         return ResponseEntity.ok(studentsService.getEmailParentByStudentId(id));
+    }
+
+    @PostMapping
+    public ResponseEntity<Students> postStudent(@RequestBody RequestStudentDto dto) {
+        Students student = studentsService.postStudent(dto);
+        return ResponseEntity.ok(student);
     }
 }

@@ -1,6 +1,8 @@
 package com.software.software.services;
 
+import com.software.software.controller.dtos.students.RequestStudentDto;
 import com.software.software.models.Activity;
+import com.software.software.models.Students;
 import com.software.software.repository.StudentsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,5 +23,10 @@ public class StudentsService {
     public String getPhoneParentByStudentId(Long studentId) {
         return studentsRepository.findParentPhoneByStudentId(studentId)
                 .orElseThrow(() -> new RuntimeException(PARENT_PHONE_NOT_FOUND + studentId));
+    }
+
+    public Students postStudent(RequestStudentDto dto) {
+        Students student = dto.toEntity();
+        return studentsRepository.save(student);
     }
 }

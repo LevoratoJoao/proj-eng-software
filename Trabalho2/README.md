@@ -69,7 +69,7 @@ Classes envolvidas:
 
 #### Diagrama
 
-...
+![Diagrama Observer Pattern](../Imagens/classe_observer.drawio.png)
 
 ### Factory Method Pattern (Yoshida)
 

@@ -1,7 +1,7 @@
 package com.software.software.services;
 
 import com.software.software.models.Activity;
-import com.software.software.observers.ActivityObserver;
+import com.software.software.patterns.ActivityObserver;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

@@ -1,7 +1,7 @@
 package com.software.software.scheduler;
 
 import com.software.software.models.Activity;
-import com.software.software.observers.ParentNotificationObserver;
+import com.software.software.patterns.ParentNotificationObserver;
 import com.software.software.services.ActivityNotificationService;
 import com.software.software.services.ActivityService;
 import org.slf4j.Logger;

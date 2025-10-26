@@ -1,16 +1,15 @@
 package com.software.software.services;
 
 import com.software.software.patterns.NotificationFactory;
-import com.software.software.scheduler.ActivityTaskScheduler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EmailService extends NotificationFactory {
-    private final Logger LOG = LoggerFactory.getLogger(EmailService.class);
+public class WhatsappService extends NotificationFactory {
+    private final Logger LOG = LoggerFactory.getLogger(WhatsappService.class);
 
     public void sendNotification(String to, String message) {
-        LOG.info("Email sent to: {} with message: {}", to, message);
+        LOG.info("Whatsapp sent to: {} with message: {}", to, message);
     }
 }

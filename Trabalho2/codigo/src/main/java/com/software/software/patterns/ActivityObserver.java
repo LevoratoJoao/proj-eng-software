@@ -1,4 +1,4 @@
-package com.software.software.observers;
+package com.software.software.patterns;
 
 import com.software.software.models.Activity;
 

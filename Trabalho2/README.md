@@ -49,6 +49,10 @@ Estrutura em Camadas:
 | Repository | Responsável pela interação com o banco de dados, realizando operações CRUD.                    |
 | Model      | Define as entidades do sistema e suas relações.                                                |
 
+### Diagrama de Arquitetura
+
+![Diagrama de Arquitetura](../Imagens/arq_software.drawio.png)
+
 ## Padrões de Projeto
 
 ### Observer Pattern

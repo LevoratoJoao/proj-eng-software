@@ -57,13 +57,17 @@ O Observer Pattern foi adotado para a funcionalidade de notificações automáti
 
 Essa implementação permite que o sistema seja facilmente expandido, adicionando novos tipos de notificações (como SMS e WhatsApp) sem alterar a lógica central. Isso garante baixo acoplamento, alta extensibilidade e reuso de código.
 
-Para sua implementação, foram criadas interfaces para o Subject (por exemplo, Atividade) e Observer (por exemplo, NotificacaoEmail). A classe `ActivityNotificationService` mantém uma lista de observadores, com o Spring Scheduler nós programamos verificações periódicas e quando uma atividade está próxima do prazo, o serviço notifica todos os observadores registrados, cada observador então executa o `onActivityOverdue` para enviar a notificação.
+Classes envolvidas:
+
+- `ActivityObserver.java`: Define o contrato que todo "observador" deve seguir. Qualquer classe que queira "ouvir" sobre atividades próximas do vencimento deve implementar esta interface.
+- `ActivityNotificationService.java`: Classe que gerencia os observadores mantendo uma lista de todos os observadores registrados. Ela possui métodos para adicionar e notificar cada observador chamando o método da interface disparando as notificações.
+- `ParentNotificationObserver.java`: Classe concreta que implementa a interface `ActivityObserver`, aplicando a lógica específica para enviar notificações e usando `NotificationServiceFactory.java` para obter o serviço de notificação adequado.
 
 #### Diagrama
 
 ...
 
-### Factory Method Pattern
+### Factory Method Pattern (Yoshida)
 
 Explicação... Quem explica...
 
@@ -71,7 +75,7 @@ Explicação... Quem explica...
 
 ...
 
-### Repository Pattern
+### Repository Pattern (Pedro)
 
 Explicação... Quem explica...
 

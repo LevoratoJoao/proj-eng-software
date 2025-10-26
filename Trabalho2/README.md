@@ -55,6 +55,32 @@ Estrutura em Camadas:
 
 O Observer Pattern foi adotado para a funcionalidade de notificações automáticas aos responsáveis pelos alunos quando uma atividade ou avaliação está próxima do prazo de entrega.
 
-Essa implementação permite que o sistema seja facilmente expandido, adicionando novos tipos de notificações (como SMS, push notifications ou alertas internos) sem alterar a lógica central. Isso garante baixo acoplamento, alta extensibilidade e reuso de código.
+Essa implementação permite que o sistema seja facilmente expandido, adicionando novos tipos de notificações (como SMS e WhatsApp) sem alterar a lógica central. Isso garante baixo acoplamento, alta extensibilidade e reuso de código.
 
 Para sua implementação, foram criadas interfaces para o Subject (por exemplo, Atividade) e Observer (por exemplo, NotificacaoEmail). A classe `ActivityNotificationService` mantém uma lista de observadores, com o Spring Scheduler nós programamos verificações periódicas e quando uma atividade está próxima do prazo, o serviço notifica todos os observadores registrados, cada observador então executa o `onActivityOverdue` para enviar a notificação.
+
+#### Diagrama
+
+...
+
+### Factory Method Pattern
+
+Explicação... Quem explica...
+
+#### Diagrama
+
+...
+
+### Repository Pattern
+
+Explicação... Quem explica...
+
+#### Diagrama
+
+...
+
+### Outros Padrões
+
+#### Scheduled Task Pattern
+
+O Scheduled Task Pattern foca na execução automática de uma certa tarefa em intervalos regulares ou em horários específicos, sem a necessidade de intervenção manual. No contexto deste projeto, esse padrão foi implementado para gerenciar a verificação periódica de prazos de atividades e avaliações. Ele foi desenvolvido utilizando o Spring Scheduler, que permite agendar tarefas de forma simples e eficiente no arquivo `ActivityTaskScheduler.java` com a anotação `@Scheduled`.

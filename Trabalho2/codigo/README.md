@@ -4,11 +4,18 @@ Recomendamos o uso de uma IDE como IntelliJ IDEA ou Eclipse para facilitar o des
 
 ## Instalação
 
-1. Certifique-se de ter o Java 21 (ou superior) e Maven instalados. Você pode verificar as versões instaladas com:
+1. Certifique-se de ter o Java 17 e Maven instalados. Você pode verificar as versões instaladas com:
 
    ```bash
     java -version
     mvn -version
+   ```
+
+   Caso não tenha maven e java instalado, use os comandos abaixo:
+
+   ```bash
+    sudo apt install maven
+    sudo apt install openjdk-17-jdk
    ```
 
 2. Instale as dependências do projeto usando Maven:
@@ -28,4 +35,3 @@ Recomendamos o uso de uma IDE como IntelliJ IDEA ou Eclipse para facilitar o des
    - JDBC URL: `jdbc:h2:mem:testdb`
    - User Name: `sa`
    - Password: `password`
-

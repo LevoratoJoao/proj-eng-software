@@ -79,13 +79,36 @@ Explicação... Quem explica...
 
 ...
 
-### Repository Pattern (Pedro)
+### Repository Pattern 
 
-Explicação... Quem explica...
+O padrão Repository é usado para abstrair a camada de acesso a dados. Ele age como uma "coleção" de objetos de domínio (Modelos/Entidades), escondendo a complexidade de como os dados são realmente buscados ou persistidos no banco de dados (seja por SQL, JPA, etc.). O Spring Data JPA é, em si, uma implementação desse padrão.
+
+#### Classes Envolvidas:
+
+- `ActivityRepository.java` e `StudentsRepository.java` (Interfaces de Repositório): São interfaces que estendem `JpaRepository<NomeDaEntidade, TipoDoId>` (ex: `JpaRepository<Activity, Long>`).
+Ao estender `JpaRepository`, elas automaticamente herdam métodos para operações CRUD (Create, Read, Update, Delete) como `save()`, `findById()`, `findAll()`, `deleteById()`, etc., sem que você precise escrever uma linha de implementação.
+
+
+- `ActivityService.java` e `StudentsService.java` (Clientes do Repositório): São as classes de serviço (lógica de negócio) que usam os repositórios.
+Elas recebem os repositórios por injeção de dependência (ex: `private final ActivityRepository atividadeRepository;`).
+
+#### Funcionamento:
+
+Abstração de CRUD: A camada de serviço (`ActivityService`, `StudentsService`) não interage diretamente com o banco de dados. Em vez disso, ela chama os métodos da interface do repositório.
+
+Consultas Personalizadas: O padrão também permite definir métodos de consulta personalizados de forma muito simples.
+
+No `ActivityRepository`, o método `findActivitiesDueTomorrow(LocalDate tomorrow)` usa uma `@Query` para buscar atividades por data.
+
+No `StudentsRepository`, o método `findEmailParentByStudentId(Long studentId)` usa uma `@Query` para buscar apenas o e-mail do responsável.
+
+#### Desacoplamento:
+
+O `ActivityService` e o `StudentsService` dependem apenas das interfaces (`ActivityRepository`, `StudentsRepository`), não de suas implementações. O Spring Data JPA cria a implementação concreta em tempo de execução. Isso significa que sua lógica de negócio não está "suja" com código de banco de dados, tornando-a mais fácil de testar e manter. Por exemplo, o `StudentsService` simplesmente chama `studentsRepository.findEmailParentByStudentId(studentId)` para obter o e-mail, sem se importar com a consulta SQL que roda por baixo dos panos.
 
 #### Diagrama
 
-...
+![Diagrama Repository Pattern](../Imagens/diagramaRepository.png)
 
 ### Outros Padrões
 

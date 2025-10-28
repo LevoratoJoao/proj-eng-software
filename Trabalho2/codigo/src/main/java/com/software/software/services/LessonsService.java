@@ -12,11 +12,13 @@ public class LessonsService {
     @Autowired
     private LessonsRepository lessonsRepository;
 
+    // Cria e salva uma nova lição
     public Lessons postLessons(RequestLessonsDto dto) {
-        Lessons lesson = dto.toEntity();
+        Lessons lesson = dto.toEntity(); // Converte DTO em entidade
         return lessonsRepository.save(lesson);
     }
 
+    // Busca uma lição pelo ID
     public Lessons getLessonsById(Long id) {
         return lessonsRepository.findById(id).orElse(null);
     }

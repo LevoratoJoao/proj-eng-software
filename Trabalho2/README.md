@@ -71,13 +71,30 @@ Classes envolvidas:
 
 ![Diagrama Observer Pattern](../Imagens/classe_observer.drawio.png)
 
-### Factory Method Pattern (Yoshida)
+### Factory Method Pattern 
 
-Explicação... Quem explica...
+O padrão Factory é usado para encapsular a lógica de criação de objetos. Em vez de criar objetos diretamente com new (ex: new EmailService()), você pede a uma "fábrica" para criar o objeto para você. Isso desacopla o código cliente das classes concretas que estão sendo criadas.
+
+Classes Envolvidas:
+
+- `NotificationFactory.java`: Uma classe abstrata que define a interface comum para todos os "produtos" (serviços de notificação). Ela declara o método sendNotification(String to, String message).
+
+- `EmailService.java`, `SmsService.java`, `WhatsappService.java`: São as implementações concretas do NotificationFactory. Cada uma herda da classe abstrata e fornece sua própria implementação do método sendNotification (atualmente, elas apenas logam a informação).
+
+- `NotificationServiceFactory.java`: Esta é a fábrica. Seu papel é instanciar e retornar o serviço de notificação correto com base em um parâmetro.
+
+- `createNotificationService` usa um switch para verificar o tipo solicitado ("email", "sms", "whatsapp") e retorna a instância concreta apropriada (new EmailService(), new SmsService(), etc.).
+
+Funcionamento:
+
+- O cliente (`ParentNotificationObserver`) precisa enviar uma notificação, mas não quer (e não deve) saber como criar um EmailService ou SmsService.
+- Ele simplesmente pede à fábrica o serviço que deseja: `notificationFactory.createNotificationService("email")`.
+- A fábrica (`NotificationServiceFactory`) cuida da lógica de criação e retorna o objeto `EmailService`.
+- O cliente, então, chama o método `sendNotification()` no objeto que recebeu. Isso é poderoso porque, se amanhã você quiser mudar a forma como o EmailService é criado (ex: adicionar chaves de API), você só mexe na fábrica, e nenhum dos clientes (`ParentNotificationObserver`) precisa ser alterado.
 
 #### Diagrama
 
-...
+![Diagrama Factory Method Pattern](../Imagens/diagramaFactory.png)
 
 ### Repository Pattern 
 

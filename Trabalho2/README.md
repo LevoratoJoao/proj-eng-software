@@ -63,13 +63,21 @@ Estrutura em Camadas:
 
 O Observer Pattern foi adotado para a funcionalidade de notificações automáticas aos responsáveis pelos alunos quando uma atividade ou avaliação está próxima do prazo de entrega.
 
-Essa implementação permite que o sistema seja facilmente expandido, adicionando novos tipos de notificações (como SMS e WhatsApp) sem alterar a lógica central. Isso garante baixo acoplamento, alta extensibilidade e reuso de código.
+Essa implementação permite que o sistema seja facilmente expandido adicionando novos observadores sem alterar a lógica central.
+ Isso garante baixo acoplamento, alta extensibilidade e reuso de código.
 
 Classes envolvidas:
 
 - `ActivityObserver.java`: Define o contrato que todo "observador" deve seguir. Qualquer classe que queira "ouvir" sobre atividades próximas do vencimento deve implementar esta interface.
 - `ActivityNotificationService.java`: Classe que gerencia os observadores mantendo uma lista de todos os observadores registrados. Ela possui métodos para adicionar e notificar cada observador chamando o método da interface disparando as notificações.
 - `ParentNotificationObserver.java`: Classe concreta que implementa a interface `ActivityObserver`, aplicando a lógica específica para enviar notificações e usando `NotificationServiceFactory.java` para obter o serviço de notificação adequado.
+
+Funcionamento:
+
+- O `ActivityTaskScheduler` inicia o processo registrando o `ParentNotificationObserver` no `ActivityNotificationService` através do método `addObserver(parentObserver)` e depois inicia o processo de verificação de atividades próximas do vencimento de acordo com o cronograma definido.
+- Para cada atividade próxima do vencimento, o `ActivityNotificationService` chama o método `notifyOverdueActivity()`.
+- O `ActivityNotificationService` recebe a chamada e notofica todos os observadores registrados (neste caso, apenas o `ParentNotificationObserver`) e executa o método `onActivityOverdue()`.
+- O `ParentNotificationObserver` então obtém o e-mail do responsável pelo aluno associado à atividade e utiliza a fábrica de serviços de notificação (`NotificationServiceFactory`) para criar o serviço de notificação apropriado (neste caso, um `EmailService`).
 
 #### Diagrama
 

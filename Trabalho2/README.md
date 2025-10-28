@@ -132,3 +132,8 @@ O `ActivityService` e o `StudentsService` dependem apenas das interfaces (`Activ
 #### Scheduled Task Pattern
 
 O Scheduled Task Pattern foca na execução automática de uma certa tarefa em intervalos regulares ou em horários específicos, sem a necessidade de intervenção manual. No contexto deste projeto, esse padrão foi implementado para gerenciar a verificação periódica de prazos de atividades e avaliações. Ele foi desenvolvido utilizando o Spring Scheduler, que permite agendar tarefas de forma simples e eficiente no arquivo `ActivityTaskScheduler.java` com a anotação `@Scheduled`.
+
+## Demonstracao
+
+https://github.com/user-attachments/assets/aaa49d8c-0861-44c4-b0b1-d909ae3d76ee
+

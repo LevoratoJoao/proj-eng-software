@@ -24,12 +24,12 @@ public interface StudentsRepository extends JpaRepository<Students, Long> {
      * e é muito mais eficiente, pois não carrega o objeto 'Students' inteiro
      * do banco de dados, apenas o texto do e-mail.
      */
-
     @Query("SELECT s.parentEmail FROM Students s WHERE s.studentId = :studentId")
+    Optional<String> findEmailParentByStudentId(Long studentId);
+
 
     /**
-     * Assinatura do método.
-     * * - Optional<String>: O tipo de retorno é um 'Optional' contendo uma 'String'.
+     * - Optional<String>: O tipo de retorno é um 'Optional' contendo uma 'String'.
      * - 'String' -> Porque a consulta pediu apenas o 'parentEmail', que é uma String.
      * - 'Optional' -> É uma boa prática para evitar erros de NullPointerException.
      * Se o 'studentId' não for encontrado (ou se o e-mail for nulo),
@@ -37,21 +37,6 @@ public interface StudentsRepository extends JpaRepository<Students, Long> {
      * o que é mais seguro de se trabalhar no código.
      * - (Long studentId): O parâmetro que será usado no lugar de ':studentId' na consulta.
      */
-
-    Optional<String> findEmailParentByStudentId(Long studentId);
-
-    /**
-     * Consulta personalizada idêntica à anterior, mas desta vez buscando
-     * o telefone do responsável ('parentPhone').
-     */
-
     @Query("SELECT s.parentPhone FROM Students s WHERE s.studentId = :studentId")
-
-    /**
-     * Assinatura do método para buscar o telefone.
-     * * - Optional<String>: Novamente, retorna um Optional com a String do telefone,
-     * pelas mesmas razões de segurança e eficiência.
-     */
-
     Optional<String> findParentPhoneByStudentId(Long studentId);
 }

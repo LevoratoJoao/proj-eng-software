@@ -32,16 +32,6 @@ public interface ActivityRepository extends JpaRepository<Activity, Long> {
      */
 
     @Query("SELECT a FROM Activity a WHERE a.dueDate = :tomorrow")
-
-    /**
-     * Assinatura do método que o Spring vai implementar para nós.
-     * * - List<Activity>: O método retornará uma lista de objetos Activity.
-     * - findActivitiesDueTomorrow: O nome do método (poderia ser qualquer nome).
-     * - (LocalDate tomorrow): O parâmetro que será recebido. O Spring
-     * automaticamente associa este parâmetro 'tomorrow' ao ':tomorrow'
-     * definido na @Query.
-     */
-
     List<Activity> findActivitiesDueTomorrow(LocalDate tomorrow);
 
 }

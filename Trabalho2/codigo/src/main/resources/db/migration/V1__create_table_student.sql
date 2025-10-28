@@ -37,11 +37,11 @@ INSERT INTO Activity
      bimester,
      student_id
 ) VALUES (
-    '2025-10-26',
+    '2025-10-29',
     'Math Homework',
     2,
     1
-), ('2025-10-26',
+), ('2025-10-29',
     'Science Project',
     2,
     2

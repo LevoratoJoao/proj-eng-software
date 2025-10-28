@@ -5,6 +5,10 @@
   - [Regras e Padrões de Desenvolvimento](#Regras-e-Padrões-de-Desenvolvimento)
 - [Arquitetura de Software](#Arquitetura-de-Software)
 - [Padrões de Projeto](#Padrões-de-Projeto)
+  - [Observer Pattern](#Observer-Pattern)
+  - [Factory Method Pattern](#Factory-Method-Pattern)
+  - [Repository Pattern](#Repository-Pattern)
+- [Demonstração](#Demonstração)
 - [Como Executar o Projeto](./codigo/README.md)
 
 ## Gerência de Qualidade
@@ -71,7 +75,7 @@ Classes envolvidas:
 
 ![Diagrama Observer Pattern](../Imagens/classe_observer.drawio.png)
 
-### Factory Method Pattern 
+### Factory Method Pattern
 
 O padrão Factory é usado para encapsular a lógica de criação de objetos. Em vez de criar objetos diretamente com new (ex: new EmailService()), você pede a uma "fábrica" para criar o objeto para você. Isso desacopla o código cliente das classes concretas que estão sendo criadas.
 
@@ -96,18 +100,17 @@ Funcionamento:
 
 ![Diagrama Factory Method Pattern](../Imagens/diagramaFactory.png)
 
-### Repository Pattern 
+### Repository Pattern
 
 O padrão Repository é usado para abstrair a camada de acesso a dados. Ele age como uma "coleção" de objetos de domínio (Modelos/Entidades), escondendo a complexidade de como os dados são realmente buscados ou persistidos no banco de dados (seja por SQL, JPA, etc.). O Spring Data JPA é, em si, uma implementação desse padrão.
 
 #### Classes Envolvidas:
 
 - `ActivityRepository.java` e `StudentsRepository.java` (Interfaces de Repositório): São interfaces que estendem `JpaRepository<NomeDaEntidade, TipoDoId>` (ex: `JpaRepository<Activity, Long>`).
-Ao estender `JpaRepository`, elas automaticamente herdam métodos para operações CRUD (Create, Read, Update, Delete) como `save()`, `findById()`, `findAll()`, `deleteById()`, etc., sem que você precise escrever uma linha de implementação.
-
+  Ao estender `JpaRepository`, elas automaticamente herdam métodos para operações CRUD (Create, Read, Update, Delete) como `save()`, `findById()`, `findAll()`, `deleteById()`, etc., sem que você precise escrever uma linha de implementação.
 
 - `ActivityService.java` e `StudentsService.java` (Clientes do Repositório): São as classes de serviço (lógica de negócio) que usam os repositórios.
-Elas recebem os repositórios por injeção de dependência (ex: `private final ActivityRepository atividadeRepository;`).
+  Elas recebem os repositórios por injeção de dependência (ex: `private final ActivityRepository atividadeRepository;`).
 
 #### Funcionamento:
 
@@ -133,7 +136,8 @@ O `ActivityService` e o `StudentsService` dependem apenas das interfaces (`Activ
 
 O Scheduled Task Pattern foca na execução automática de uma certa tarefa em intervalos regulares ou em horários específicos, sem a necessidade de intervenção manual. No contexto deste projeto, esse padrão foi implementado para gerenciar a verificação periódica de prazos de atividades e avaliações. Ele foi desenvolvido utilizando o Spring Scheduler, que permite agendar tarefas de forma simples e eficiente no arquivo `ActivityTaskScheduler.java` com a anotação `@Scheduled`.
 
-## Demonstracao
+## Demonstração
+
+[Slide](https://www.canva.com/design/DAG3BlAkJfg/NuW4hy0TVdLkqUESelTdlg/view?utm_content=DAG3BlAkJfg&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h2bd91cac84)
 
 https://github.com/user-attachments/assets/aaa49d8c-0861-44c4-b0b1-d909ae3d76ee
-

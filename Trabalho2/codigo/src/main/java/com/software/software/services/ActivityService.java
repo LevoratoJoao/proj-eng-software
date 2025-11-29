@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Serviço responsável pela lógica de negócio das atividades
@@ -36,9 +38,14 @@ public class ActivityService {
      * Cria uma nova atividade para todos os estudantes cadastrados
      * Implementa a regra de negócio: uma atividade é atribuída a todos os alunos
      */
-    public List<Activity> postActivity(RequestActivityDto dto) {
+    public Map<String, Object> postActivity(RequestActivityDto dto) {
+        Map<String, Object> response = new HashMap<>();
+
         // Busca todos os estudantes cadastrados
         List<Students> students = studentsRepository.findAll();
+        if (students.isEmpty()) {
+            throw new RuntimeException("No students found to assign activities.");
+        }
         List<Activity> activities = new ArrayList<>();
 
         // Cria uma atividade para cada estudante
@@ -47,8 +54,11 @@ public class ActivityService {
             activity.setStudent(student); // Associa a atividade ao estudante
             activities.add(activityRepository.save(activity));
         }
+        response.put("message", "Activities created and assigned to all students.");
 
-        return activities;
+        response.put("activities", activities);
+
+        return response;
     }
 
     /**

@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/atividade")
@@ -22,8 +23,10 @@ public class ActivityController {
 
     @PostMapping
     public ResponseEntity<ApiResponse<List<Activity>>> postActivity(@RequestBody RequestActivityDto dto) {
-        List<Activity> activities = activityService.postActivity(dto);
-        return ResponseEntity.ok(ApiResponse.success(ACTIVITY_CREATED_SUCCESS, activities));
+        Map<String, Object> activities = activityService.postActivity(dto);
+        String message = (String) activities.get("message");
+        List<Activity> activityList = (List<Activity>) activities.get("activities");
+        return ResponseEntity.ok(ApiResponse.success(message, activityList));
     }
 
     @GetMapping

@@ -57,4 +57,26 @@ public class ActivityService {
     public List<Activity> getAllActivities() {
         return activityRepository.findAll();
     }
+
+    /**
+     * Envia notificações de lembrete para os responsáveis sobre uma atividade específica
+     * Utiliza o padrão Factory para criar serviços de notificação diferentes
+     */
+    public void sendReminderNotifications(Long id) {
+        activityRepository.findById(id).ifPresentOrElse(activity -> {
+            String emailParent = studentsService.getEmailParentByStudentId(activity.getStudent().getStudentId());
+            String phoneParent = studentsService.getPhoneParentByStudentId(activity.getStudent().getStudentId());
+
+            String message = "Reminder: Your child has an upcoming activity: " + activity.getDescription() +
+                    " due on: " + activity.getDueDate();
+
+            NotificationServiceFactory notificationFactory = new NotificationServiceFactory();
+            notificationFactory.createNotificationService("email").sendNotification(emailParent, message);
+            notificationFactory.createNotificationService("sms").sendNotification(phoneParent, message);
+            notificationFactory.createNotificationService("whatsapp").sendNotification(phoneParent, message);
+        }, () -> {
+            throw new RuntimeException("Activity not found, ID: " + id);
+        });
+
+    }
 }

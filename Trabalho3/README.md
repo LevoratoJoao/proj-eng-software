@@ -4,7 +4,7 @@
 - [Testes automatizados](#Testes-automatizados)
 - [Novas funcionalidades e refatorações](#Novas-funcionalidades-e-refatorações)
 - [Demonstração](#Demonstração)
-- [Como Executar o Projeto](./codigo/README.md)
+- [Como Executar o Projeto](../Trabalho2/codigo/README.md)
 
 ## Cenarios de testes
 
@@ -33,7 +33,18 @@ Teste 3 passou, será necessário corrigir este comportamento.
 
 ### Testes de Atividades (Levorato)
 
+Para os testes automatizados, utilizamos o JUnit para garantir a funcionalidade correta do sistema de atividades. A seguir estão os casos de teste implementados:
 
+- `postActivityWithStudentsCreatesActivitiesForAllStudents`: Testa a criação de atividades para múltiplos estudantes.
+- `getAllActivitiesReturnsAllActivities`: Testa a recuperação de todas as atividades.
+- `sendReminderNotificationsWithValidIdSendsNotifications`: Testa o envio de notificações de lembrete para uma atividade específica.
+- `postActivityWithNoStudentsReturnsWarningMessage`: Testa a criação de uma atividade sem estudantes associados, esperando uma mensagem de erro.
+- `postActivityWithNullDescriptionThrowsException`: Testa a criação de uma atividade com descrição nula, esperando uma exceção.
+- `postActivityWithPastDueDateThrowsException`: Testa a criação de uma atividade com data de vencimento no passado, esperando uma exceção.
+- `sendReminderNotificationsWithInvalidIdThrowsException`: Testa o envio de notificações de lembrete para uma atividade com ID inválido, esperando uma exceção.
+- `sendReminderNotificationsWithNullIdThrowsException`: Testa o envio de notificações de lembrete para uma atividade com ID nulo, esperando uma exceção.
+
+![testes_automatizados_atividade](../Imagens/autotest_atividade.png)
 
 ## Novas funcionalidades e refatorações
 

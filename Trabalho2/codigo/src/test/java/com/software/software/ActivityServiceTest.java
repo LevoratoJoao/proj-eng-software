@@ -146,4 +146,124 @@ class ActivityServiceTest {
         assertThrows(RuntimeException.class,
                 () -> activityService.sendReminderNotifications(null));
     }
+
+    @Test
+    void getOverdueActivitiesReturnsCorrectActivities() {
+        LocalDate testDate = LocalDate.now();
+        List<Activity> expectedOverdueActivities = Arrays.asList(new Activity(), new Activity());
+
+        when(activityRepository.findActivitiesDueTomorrow(testDate)).thenReturn(expectedOverdueActivities);
+
+        List<Activity> result = activityService.getOverdueActivities(testDate);
+
+        assertEquals(expectedOverdueActivities, result);
+        verify(activityRepository).findActivitiesDueTomorrow(testDate);
+    }
+
+    @Test
+    void verifyActivityDataWithNullDueDateThrowsException() {
+        RequestActivityDto dto = new RequestActivityDto(null, "Test Activity", 1);
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> activityService.verifyActivityData(dto));
+        assertEquals("Due date, description, and priority must be provided.", exception.getMessage());
+    }
+
+    @Test
+    void verifyActivityDataWithNullBimesterThrowsException() {
+        RequestActivityDto dto = new RequestActivityDto(LocalDate.now().plusDays(1), "Test Activity", null);
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> activityService.verifyActivityData(dto));
+        assertEquals("Due date, description, and priority must be provided.", exception.getMessage());
+    }
+
+    @Test
+    void verifyActivityDataWithInvalidBimesterThrowsException() {
+        RequestActivityDto dto = new RequestActivityDto(LocalDate.now().plusDays(1), "Test Activity", 5);
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> activityService.verifyActivityData(dto));
+        assertEquals("Bimester must be between 1 and 4.", exception.getMessage());
+    }
+
+    @Test
+    void verifyActivityDataWithZeroBimesterThrowsException() {
+        RequestActivityDto dto = new RequestActivityDto(LocalDate.now().plusDays(1), "Test Activity", 0);
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> activityService.verifyActivityData(dto));
+        assertEquals("Bimester must be between 1 and 4.", exception.getMessage());
+    }
+
+    @Test
+    void verifyActivityDataWithValidDataDoesNotThrow() {
+        RequestActivityDto dto = new RequestActivityDto(LocalDate.now().plusDays(1), "Test Activity", 2);
+
+        assertDoesNotThrow(() -> activityService.verifyActivityData(dto));
+    }
+
+    @Test
+    void postActivityWithRepositoryExceptionThrowsException() {
+        Students student = new Students();
+        student.setStudentId(1L);
+
+        when(studentsRepository.findAll()).thenReturn(Arrays.asList(student));
+        when(activityRepository.save(any(Activity.class))).thenThrow(new RuntimeException("Database error"));
+
+        RequestActivityDto dto = new RequestActivityDto(LocalDate.now().plusDays(1), "Test Activity", 1);
+
+        assertThrows(RuntimeException.class, () -> activityService.postActivity(dto));
+    }
+
+    @Test
+    void getAllActivitiesWithEmptyRepositoryReturnsEmptyList() {
+        when(activityRepository.findAll()).thenReturn(Arrays.asList());
+
+        List<Activity> result = activityService.getAllActivities();
+
+        assertTrue(result.isEmpty());
+        verify(activityRepository).findAll();
+    }
+
+    @Test
+    void sendReminderNotificationsCallsAllNotificationServices() {
+        Activity activity = new Activity();
+        activity.setDescription("Test Activity");
+        activity.setDueDate(LocalDate.now().plusDays(1));
+        Students student = new Students();
+        student.setStudentId(1L);
+        activity.setStudent(student);
+
+        // Mock o retorno do repositório de atividades e do serviço de estudantes
+        when(activityRepository.findById(1L)).thenReturn(Optional.of(activity));
+        when(studentsService.getEmailParentByStudentId(1L)).thenReturn("parent@test.com");
+        when(studentsService.getPhoneParentByStudentId(1L)).thenReturn("123456789");
+
+        // Verifica se o método executa sem lançar exceções
+        assertDoesNotThrow(() -> activityService.sendReminderNotifications(1L));
+
+        // Verifica se os métodos de obtenção de email e telefone foram chamados
+        verify(studentsService).getEmailParentByStudentId(1L);
+        verify(studentsService).getPhoneParentByStudentId(1L);
+    }
+
+    @Test
+    void postActivityWithBoundaryBimesterValuesSucceeds() {
+        Students student = new Students();
+        student.setStudentId(1L);
+
+        // Mock o retorno do repositório de estudantes com um estudante
+        when(studentsRepository.findAll()).thenReturn(Arrays.asList(student));
+        when(activityRepository.save(any(Activity.class))).thenReturn(new Activity());
+
+        // Testa o valor mínimo do bimestre
+        RequestActivityDto dto1 = new RequestActivityDto(LocalDate.now().plusDays(1), "Test Activity", 1);
+        assertDoesNotThrow(() -> activityService.postActivity(dto1));
+
+        // Testa o valor máximo do bimestre
+        RequestActivityDto dto4 = new RequestActivityDto(LocalDate.now().plusDays(1), "Test Activity", 4);
+        assertDoesNotThrow(() -> activityService.postActivity(dto4));
+    }
+
 }

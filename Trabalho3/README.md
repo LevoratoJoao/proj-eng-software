@@ -45,7 +45,7 @@ Teste 3 passou, será necessário corrigir este comportamento.
 
 - **Teste 1:** Registro de aula com dados inválidos
 Verificar como a API reage a um formato de data impossível.
-![teste1_registro-aula](./Imagens/teste1_registro-aula.png)
+![teste1_registro-aula](../Imagens/teste1_registro-aula.png)
 
 - **Teste 2:** Falta de campo obrigatório
 Verificar se a API rejeita requisições quando falta um campo obrigatório.

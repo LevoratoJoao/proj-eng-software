@@ -12,6 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Optional;
@@ -24,21 +25,17 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class LessonsServiceTest {
 
-    // Mock do repositório usado pelo serviço
     @Mock
     private LessonsRepository lessonsRepository;
 
-    // Mock do DTO de requisição convertido para entidade nas chamadas
     @Mock
     private RequestLessonsDto dto;
 
-    // Instância do serviço com mocks injetados
     @InjectMocks
     private LessonsService lessonsService;
 
     @Test
     void postLessonsSuccess() {
-        // Objetivo: validar criação/salvamento quando DTO é válido
         Lessons lesson = new Lessons();
         lesson.setLessonId(1L);
         lesson.setDiscipline("Math");
@@ -49,14 +46,11 @@ class LessonsServiceTest {
         lesson.setTheme("Fractions");
         lesson.setObjectives("Understand basic fractions");
 
-        // Setup: dto converte para entidade e repositório retorna a mesma ao salvar
         when(dto.toEntity()).thenReturn(lesson);
         when(lessonsRepository.save(any(Lessons.class))).thenReturn(lesson);
 
-        // Execução
         Lessons result = lessonsService.postLessons(dto);
 
-        // Verificações: resultado válido e métodos chamados
         assertNotNull(result);
         assertEquals(1L, result.getLessonId());
         assertEquals("Math", result.getDiscipline());
@@ -66,15 +60,13 @@ class LessonsServiceTest {
 
     @Test
     void postLessonsRepositoryThrows() {
-        // Objetivo: garantir que exceções do repositório são propagadas
         Lessons validLesson = new Lessons();
         validLesson.setGroupClass("A1");
         validLesson.setLessonDate(LocalDate.of(2025, 1, 1));
         validLesson.setTimeLessonStart(LocalTime.of(10, 0));
         validLesson.setTimeLessonEnd(LocalTime.of(11, 0));
-        when(dto.toEntity()).thenReturn(validLesson);
 
-        // Agora o save será chamado e a exceção do repositório será usada
+        when(dto.toEntity()).thenReturn(validLesson);
         when(lessonsRepository.save(any())).thenThrow(new RuntimeException("DB Error"));
 
         assertThrows(RuntimeException.class, () -> lessonsService.postLessons(dto));
@@ -83,14 +75,12 @@ class LessonsServiceTest {
 
     @Test
     void postLessonsNullDtoThrowsNPE() {
-        // Objetivo: comportamento quando DTO é nulo — evita salvar
         assertThrows(NullPointerException.class, () -> lessonsService.postLessons(null));
         verify(lessonsRepository, never()).save(any());
     }
 
     @Test
     void getLessonsByIdFound() {
-        // Objetivo: recuperar lição existente por ID
         Lessons lesson = new Lessons();
         lesson.setLessonId(10L);
 
@@ -98,7 +88,6 @@ class LessonsServiceTest {
 
         Lessons result = lessonsService.getLessonsById(10L);
 
-        // Verifica retorno e chamada ao repositório
         assertNotNull(result);
         assertEquals(10L, result.getLessonId());
         verify(lessonsRepository).findById(10L);
@@ -106,7 +95,6 @@ class LessonsServiceTest {
 
     @Test
     void getLessonsByIdNotFound() {
-        // Objetivo: quando ID não existe, retorna null
         when(lessonsRepository.findById(2L)).thenReturn(Optional.empty());
 
         Lessons result = lessonsService.getLessonsById(2L);
@@ -117,7 +105,6 @@ class LessonsServiceTest {
 
     @Test
     void getLessonsByIdNullId() {
-        // Objetivo: se ID nulo, não chamar repositório e retornar null
         Lessons result = lessonsService.getLessonsById(null);
 
         assertNull(result);
@@ -126,7 +113,6 @@ class LessonsServiceTest {
 
     @Test
     void postLessonsConflictThrows() {
-        // Objetivo: bloquear criação quando há conflito de horário com mesma turma/data
         Lessons newLesson = new Lessons();
         newLesson.setGroupClass("A1");
         newLesson.setLessonDate(LocalDate.of(2025, 1, 1));
@@ -135,7 +121,6 @@ class LessonsServiceTest {
 
         when(dto.toEntity()).thenReturn(newLesson);
 
-        // Lição existente que intersecta o intervalo (10:30-11:30) -> conflito
         Lessons existing = new Lessons();
         existing.setGroupClass("A1");
         existing.setLessonDate(LocalDate.of(2025, 1, 1));
@@ -145,7 +130,6 @@ class LessonsServiceTest {
         when(lessonsRepository.findByGroupClassAndLessonDate("A1", newLesson.getLessonDate()))
                 .thenReturn(Arrays.asList(existing));
 
-        // Expectativa: IllegalStateException e nenhum save executado
         assertThrows(IllegalStateException.class, () -> lessonsService.postLessons(dto));
         verify(lessonsRepository, never()).save(any());
         verify(lessonsRepository).findByGroupClassAndLessonDate("A1", newLesson.getLessonDate());
@@ -153,7 +137,6 @@ class LessonsServiceTest {
 
     @Test
     void postLessonsNoConflictBeforeAllowsSave() {
-        // Objetivo: permitir salvar quando lição existente termina antes do novo início
         Lessons newLesson = new Lessons();
         newLesson.setGroupClass("A1");
         newLesson.setLessonDate(LocalDate.of(2025, 1, 1));
@@ -162,7 +145,6 @@ class LessonsServiceTest {
 
         when(dto.toEntity()).thenReturn(newLesson);
 
-        // Existente: 08:00-09:00
         Lessons existing = new Lessons();
         existing.setGroupClass("A1");
         existing.setLessonDate(LocalDate.of(2025, 1, 1));
@@ -175,7 +157,6 @@ class LessonsServiceTest {
 
         Lessons result = lessonsService.postLessons(dto);
 
-        // Verifica que salvou e consultou o repositório
         assertNotNull(result);
         verify(lessonsRepository).save(newLesson);
         verify(lessonsRepository).findByGroupClassAndLessonDate("A1", newLesson.getLessonDate());
@@ -183,7 +164,6 @@ class LessonsServiceTest {
 
     @Test
     void postLessonsNoConflictAfterAllowsSave() {
-        // Objetivo: permitir salvar quando lição existente começa depois do novo fim
         Lessons newLesson = new Lessons();
         newLesson.setGroupClass("A1");
         newLesson.setLessonDate(LocalDate.of(2025, 1, 1));
@@ -192,7 +172,6 @@ class LessonsServiceTest {
 
         when(dto.toEntity()).thenReturn(newLesson);
 
-        // Existente: 12:00-13:00
         Lessons existing = new Lessons();
         existing.setGroupClass("A1");
         existing.setLessonDate(LocalDate.of(2025, 1, 1));
@@ -212,7 +191,6 @@ class LessonsServiceTest {
 
     @Test
     void postLessonsExistingIncompleteIgnoredAllowsSave() {
-        // Objetivo: ignorar registros existentes com horários incompletos e permitir salvar
         Lessons newLesson = new Lessons();
         newLesson.setGroupClass("A1");
         newLesson.setLessonDate(LocalDate.of(2025, 1, 1));
@@ -221,7 +199,6 @@ class LessonsServiceTest {
 
         when(dto.toEntity()).thenReturn(newLesson);
 
-        // Existente com horários nulos (registro incompleto) -> deve ser ignorado
         Lessons existing = new Lessons();
         existing.setGroupClass("A1");
         existing.setLessonDate(LocalDate.of(2025, 1, 1));
@@ -240,7 +217,6 @@ class LessonsServiceTest {
 
     @Test
     void postLessonsInvalidTimesThrowsIllegalArgumentException() {
-        // Objetivo: validar que início >= fim é inválido
         Lessons newLesson = new Lessons();
         newLesson.setGroupClass("A1");
         newLesson.setLessonDate(LocalDate.of(2025, 1, 1));
@@ -249,7 +225,48 @@ class LessonsServiceTest {
 
         when(dto.toEntity()).thenReturn(newLesson);
 
-        // Expectativa: validação bate antes de consultar conflitos e salvar
+        assertThrows(IllegalArgumentException.class, () -> lessonsService.postLessons(dto));
+        verify(lessonsRepository, never()).findByGroupClassAndLessonDate(anyString(), any());
+        verify(lessonsRepository, never()).save(any());
+    }
+
+    @Test
+    void postLessonsInvalidDateFormatThrows() {
+        // Teste 1: simula DTO que falha ao converter data (DateTimeParseException)
+        when(dto.toEntity()).thenThrow(new DateTimeParseException("Invalid date", "bad", 0));
+
+        assertThrows(DateTimeParseException.class, () -> lessonsService.postLessons(dto));
+        verify(lessonsRepository, never()).save(any());
+        verify(lessonsRepository, never()).findByGroupClassAndLessonDate(anyString(), any());
+    }
+
+    @Test
+    void postLessonsMissingRequiredFieldThrows() {
+        // Teste 2: falta de campo obrigatório (ex.: início nulo)
+        Lessons newLesson = new Lessons();
+        newLesson.setGroupClass("A1");
+        newLesson.setLessonDate(LocalDate.of(2025, 1, 1));
+        newLesson.setTimeLessonStart(null); // campo obrigatório ausente
+        newLesson.setTimeLessonEnd(LocalTime.of(11, 0));
+
+        when(dto.toEntity()).thenReturn(newLesson);
+
+        assertThrows(IllegalArgumentException.class, () -> lessonsService.postLessons(dto));
+        verify(lessonsRepository, never()).findByGroupClassAndLessonDate(anyString(), any());
+        verify(lessonsRepository, never()).save(any());
+    }
+
+    @Test
+    void postLessonsInvertedTimeThrows() {
+        // Teste 3: horário invertido (fim antes do início)
+        Lessons newLesson = new Lessons();
+        newLesson.setGroupClass("A1");
+        newLesson.setLessonDate(LocalDate.of(2025, 1, 1));
+        newLesson.setTimeLessonStart(LocalTime.of(11, 0));
+        newLesson.setTimeLessonEnd(LocalTime.of(10, 0)); // fim antes do início
+
+        when(dto.toEntity()).thenReturn(newLesson);
+
         assertThrows(IllegalArgumentException.class, () -> lessonsService.postLessons(dto));
         verify(lessonsRepository, never()).findByGroupClassAndLessonDate(anyString(), any());
         verify(lessonsRepository, never()).save(any());

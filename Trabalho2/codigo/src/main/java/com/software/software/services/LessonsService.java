@@ -17,7 +17,7 @@ public class LessonsService {
         this.lessonsRepository = lessonsRepository;
     }
 
-    // Cria e salva uma nova lição com validação de horários e prevenção de conflitos
+    // Cria e salva um novo registro de aula com validação de horários e prevenção de conflitos
     public Lessons postLessons(RequestLessonsDto dto) {
         if (dto == null) {
             throw new NullPointerException("RequestLessonsDto is null");

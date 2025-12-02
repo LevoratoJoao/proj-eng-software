@@ -45,7 +45,7 @@ Teste 3 passou, será necessário corrigir este comportamento.
 
 - **Teste 1:** Registro de aula com dados inválidos
 Verificar como a API reage a um formato de data impossível.
-![Teste1](./caminho/teste1_registro-aula.png)
+![Teste1](./Imagens/teste1_registro-aula.png)
 
 - **Teste 2:** Falta de campo obrigatório
 Verificar se a API rejeita requisições quando falta um campo obrigatório.
@@ -53,7 +53,7 @@ Verificar se a API rejeita requisições quando falta um campo obrigatório.
 
 - **Teste 3:** Registro de aula com horário invertido
 Verificar como a API trata um horário inválido, onde a aula termina antes de começar.
-![Teste3](./caminho/teste3_registro-aula.png)
+![Teste3](./Imagens/teste3_registro-aula.png)
 Foi possível registrar aula com horário invertido, necessário novas correções.
 
 - **Teste 4:** Registro de aula com dados válidos

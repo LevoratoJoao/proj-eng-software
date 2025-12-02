@@ -31,7 +31,17 @@ Teste 3 passou, será necessário corrigir este comportamento.
 
 ### Cenário 2: Observações (Pedro)
 
-...
+- **Cenário de Sucesso:** Testar o envio de uma observação válida para um aluno existente, selecionando o tipo de notificação (ex: Email ou WhatsApp). O sistema deve salvar o registro no banco e disparar a notificação.
+
+![Fluxo de Observação](../Imagens/obs_fluxo_sucesso.png)
+
+- **Cenário de Falha (Aluno Inexistente):** Testar o envio de uma observação para um ID de aluno que não existe no banco de dados. O sistema deve retornar erro 404 ou 500 (conforme tratamento de exceção).
+
+![Erro Aluno Inexistente](../Imagens/obs_erro_id.png)
+
+- **Cenário de Persistência:** Verificar se, após o envio, a observação foi realmente gravada na tabela `observations` com a data e hora corretas.
+
+
 
 ## Testes Automatizados
 
@@ -52,7 +62,24 @@ Para os testes automatizados, utilizamos o JUnit para garantir a funcionalidade 
 
 ### Testes de Observações (Pedro)
 
-...
+Para garantir a qualidade e a confiabilidade da nova funcionalidade de Observações, foi aplicada a metodologia **TDD (Test Driven Development)**. Primeiro foram criados os testes que falhavam (Red), depois a implementação (Green) e por fim a refatoração.
+
+**Testes Unitários (`StudentsServiceTest`):**
+Utilizando JUnit e Mockito para isolar a regra de negócios.
+- `shouldCreateObservationAndNotifyParent`: Verifica o fluxo principal.
+  - Simula um aluno existente.
+  - Valida se o método `save` do `ObservationRepository` foi chamado (Persistência).
+  - Valida se a `NotificationServiceFactory` foi acionada para criar o serviço de notificação correto (Email/SMS).
+  - Valida se o método `sendNotification` foi executado com o email do responsável.
+
+**Testes de Integração (`StudentsControllerTest`):**
+Utilizando `MockMvc` para testar a API REST.
+- `shouldReturnCreatedWhenObservationIsSent`: Realiza uma requisição HTTP `POST` simulada para o endpoint `/students/{id}/observations`.
+  - Envia um JSON com a mensagem e o tipo de notificação.
+  - Verifica se a API retorna o status HTTP **201 Created**.
+
+![Resultados dos Testes Unitários e de Integração](../Imagens/testes_observacao_resultado.png)
+
 
 ## Novas funcionalidades e refatorações
 
@@ -86,11 +113,26 @@ Novos testes automatizados criados para as verificações e validações da func
 
 ### Novas Funcionalidades (Pedro)
 
-...
+- **Envio e Persistência de Observações Pedagógicas**
+  - Funcionalidade desenvolvida seguindo estritamente o ciclo de **TDD**.
+  - Permite que o professor registre uma observação sobre o aluno e notifique os pais automaticamente.
+  - Diferente da versão anterior, agora as observações ficam salvas no histórico do aluno (Banco de Dados).
+  - **Endpoint:** `POST /students/{id}/observations`
+  - **Código:** [StudentsService.java](https://github.com/LevoratoJoao/proj-eng-software/blob/main/Trabalho2/codigo/src/main/java/com/software/software/services/StudentsService.java) e [StudentsController.java](https://github.com/LevoratoJoao/proj-eng-software/blob/main/Trabalho2/codigo/src/main/java/com/software/software/controller/StudentsController.java)
+
+**Evidência de TDD e Testes:**
+Foram criados testes automatizados que cobrem tanto a lógica de serviço quanto a camada de controle.
+- Código dos Testes: [StudentsServiceTest.java](https://github.com/LevoratoJoao/proj-eng-software/blob/main/Trabalho2/codigo/src/test/java/com/software/software/services/StudentsServiceTest.java)
+
 
 ### Refatorações e correções de bugs (Pedro)
 
-...
+- **Padronização de DTOs:**
+  - Criação do pacote `dtos/observation` e implementação do `RequestObservationDto` utilizando Java Records para imutabilidade e código mais limpo, substituindo implementações antigas despadronizadas.
+- **Injeção de Dependência e Arquitetura:**
+  - Refatoração do `StudentsService` para incluir a injeção do `ObservationRepository` e da `NotificationServiceFactory`, permitindo o desacoplamento entre a lógica de salvar dados e a lógica de enviar notificações.
+- **Estrutura de Testes:**
+  - Correção da estrutura de pastas dentro de `src/test/java`, movendo os testes para os pacotes espelhados corretamente (`services`, `controller`), garantindo que o Maven/Gradle reconheça e execute os testes automatizados durante o build.
 
 ## Demonstração
 

@@ -2,3 +2,4 @@
 
 1. [Trabalho 1](./Trabalho1/README.md)
 2. [Trabalho 2](./Trabalho2/README.md)
+3. [Trabalho 3](./Trabalho3/README.md)

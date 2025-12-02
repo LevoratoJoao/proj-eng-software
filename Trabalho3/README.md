@@ -45,20 +45,20 @@ Teste 3 passou, será necessário corrigir este comportamento.
 
 - **Teste 1:** Registro de aula com dados inválidos
 Verificar como a API reage a um formato de data impossível.
-![Teste 1](./caminho/teste1_registro-aula.png)
+![Teste1](./caminho/teste1_registro-aula.png)
 
 - **Teste 2:** Falta de campo obrigatório
 Verificar se a API rejeita requisições quando falta um campo obrigatório.
-![Teste 2](../Imagens/teste2_registro-aula.png)
+![Teste2](../Imagens/teste2_registro-aula.png)
 
 - **Teste 3:** Registro de aula com horário invertido
 Verificar como a API trata um horário inválido, onde a aula termina antes de começar.
-![Teste 3](./caminho/teste3_registro-aula.png)
+![Teste3](./caminho/teste3_registro-aula.png)
 Foi possível registrar aula com horário invertido, necessário novas correções.
 
 - **Teste 4:** Registro de aula com dados válidos
 Confirmar que a API registra corretamente uma aula quando todos os campos obrigatórios são enviados com valores válidos.
-![Teste 4](../Imagens/teste4_registro-aula.png)
+![Teste4](../Imagens/teste4_registro-aula.png)
 
 ## Testes Automatizados
 
@@ -106,7 +106,7 @@ Conjunto de testes unitários para validar a criação, leitura e as validaçõe
 `postLessonsNullDtoThrowsNPE`: Testa que nenhuma chamada indevida ao repositório é realizada.
 `getLessonsByIdFound / NotFound / NullId`: Testa comportamentos de busca por ID.
 
-![Teste 5](../Imagens/teste5_registro-aula.png)
+![Teste5](../Imagens/teste5_registro-aula.png)
 
 ## Novas funcionalidades e refatorações
 
@@ -170,7 +170,7 @@ Testes realizados para garantir o funcionamento correto da funcionalidade:
 ![Feature](../Imagens/feature_registro-aula.png)
 
 Novos testes automatizados criados para as verificações e validações da funcionalidade:
-![Novos Testes](../Imagens/teste6_registro-aula.png)
+![NovosTestes](../Imagens/teste6_registro-aula.png)
 
 ### Refatorações e correções de bugs (Yoshida)
 

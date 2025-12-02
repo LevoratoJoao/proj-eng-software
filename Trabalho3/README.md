@@ -41,7 +41,24 @@ Teste 3 passou, será necessário corrigir este comportamento.
 
 - **Cenário de Persistência:** Verificar se, após o envio, a observação foi realmente gravada na tabela `observations` com a data e hora corretas.
 
+### Cenário 3: Registro de Aulas (Yoshida)
 
+- **Teste 1:** Registro de aula com dados inválidos
+Verificar como a API reage a um formato de data impossível.
+![Teste 1](./caminho/teste1_registro-aula.png)
+
+- **Teste 2:** Falta de campo obrigatório
+Verificar se a API rejeita requisições quando falta um campo obrigatório.
+![Teste 2](../Imagens/teste2_registro-aula.png)
+
+- **Teste 3:** Registro de aula com horário invertido
+Verificar como a API trata um horário inválido, onde a aula termina antes de começar.
+![Teste 3](./caminho/teste3_registro-aula.png)
+Foi possível registrar aula com horário invertido, necessário novas correções.
+
+- **Teste 4:** Registro de aula com dados válidos
+Confirmar que a API registra corretamente uma aula quando todos os campos obrigatórios são enviados com valores válidos.
+![Teste 4](../Imagens/teste4_registro-aula.png)
 
 ## Testes Automatizados
 
@@ -80,6 +97,16 @@ Utilizando `MockMvc` para testar a API REST.
 
 ![Resultados dos Testes Unitários e de Integração](../Imagens/testes_observacao_resultado.png)
 
+### Testes de Registros de Aula (Yoshida)
+
+Conjunto de testes unitários para validar a criação, leitura e as validações de conflito de horários na camada de serviço (LessonsService).
+
+`postLessonsSuccess`: Testa a criação de um registro de aula válido.
+`postLessonsRepositoryThrows`: Simula uma falha no repositório durante a persistência do resgistro.
+`postLessonsNullDtoThrowsNPE`: Testa que nenhuma chamada indevida ao repositório é realizada.
+`getLessonsByIdFound / NotFound / NullId`: Testa comportamentos de busca por ID.
+
+![Teste 5](../Imagens/teste5_registro-aula.png)
 
 ## Novas funcionalidades e refatorações
 
@@ -133,6 +160,27 @@ Foram criados testes automatizados que cobrem tanto a lógica de serviço quanto
   - Refatoração do `StudentsService` para incluir a injeção do `ObservationRepository` e da `NotificationServiceFactory`, permitindo o desacoplamento entre a lógica de salvar dados e a lógica de enviar notificações.
 - **Estrutura de Testes:**
   - Correção da estrutura de pastas dentro de `src/test/java`, movendo os testes para os pacotes espelhados corretamente (`services`, `controller`), garantindo que o Maven/Gradle reconheça e execute os testes automatizados durante o build.
+ 
+### Novas Funcionalidades (Yoshida)
+
+- Garantir integridade da agenda evitando registros de aulas sobrepostas por turma.
+- Código: [LessonsService](https://github.com/LevoratoJoao/proj-eng-software/blob/main/Trabalho2/codigo/src/main/java/com/software/software/services/LessonsService.java)
+
+Testes realizados para garantir o funcionamento correto da funcionalidade:
+![Feature](../Imagens/feature_registro-aula.png)
+
+Novos testes automatizados criados para as verificações e validações da funcionalidade:
+![Novos Testes](../Imagens/teste6_registro-aula.png)
+
+### Refatorações e correções de bugs (Yoshida)
+
+- **Refatoração de código:**
+  - O `ServiceLessons` passou por melhorias estruturais que aumentam sua robustez e clareza.
+  - Código: [LessonsService](https://github.com/LevoratoJoao/proj-eng-software/blob/main/Trabalho2/codigo/src/main/java/com/software/software/services/LessonsService.java)
+    
+- **Tratamento de erros:**
+  - O sistema valida a consistência dos horários, impedindo o cadastro de uma lição cujo horário de término seja anterior ao horário de início.
+  - Código: [LessonsService](https://github.com/LevoratoJoao/proj-eng-software/blob/main/Trabalho2/codigo/src/main/java/com/software/software/services/LessonsService.java)
 
 ## Demonstração
 

@@ -44,19 +44,23 @@ Teste 3 passou, será necessário corrigir este comportamento.
 ### Cenário 3: Registro de Aulas (Yoshida)
 
 - **Teste 1:** Registro de aula com dados inválidos
+  
 Verificar como a API reage a um formato de data impossível.
 ![teste1_registro-aula](../Imagens/teste1_registro-aula.png)
 
 - **Teste 2:** Falta de campo obrigatório
+  
 Verificar se a API rejeita requisições quando falta um campo obrigatório.
 ![teste2_registro-aula](../Imagens/teste2_registro-aula.png)
 
 - **Teste 3:** Registro de aula com horário invertido
+  
 Verificar como a API trata um horário inválido, onde a aula termina antes de começar.
-![teste3_registro-aula](./Imagens/teste3_registro-aula.png)
+![teste3_registro-aula](../Imagens/teste3_registro-aula.png)
 Foi possível registrar aula com horário invertido, necessário novas correções.
 
 - **Teste 4:** Registro de aula com dados válidos
+  
 Confirmar que a API registra corretamente uma aula quando todos os campos obrigatórios são enviados com valores válidos.
 ![teste4_registro-aula](../Imagens/teste4_registro-aula.png)
 
@@ -101,10 +105,11 @@ Utilizando `MockMvc` para testar a API REST.
 
 Conjunto de testes unitários para validar a criação, leitura e as validações de conflito de horários na camada de serviço (LessonsService).
 
-`postLessonsSuccess`: Testa a criação de um registro de aula válido.
-`postLessonsRepositoryThrows`: Simula uma falha no repositório durante a persistência do resgistro.
-`postLessonsNullDtoThrowsNPE`: Testa que nenhuma chamada indevida ao repositório é realizada.
-`getLessonsByIdFound / NotFound / NullId`: Testa comportamentos de busca por ID.
+- `postLessonsSuccess`: Testa a criação de um registro de aula válido.
+- `postLessonsRepositoryThrows`: Simula uma falha no repositório durante a persistência do resgistro.
+- `postLessonsNullDtoThrowsNPE`: Testa se nenhuma chamada indevida ao repositório é realizada.
+- `getLessonsByIdFound / NotFound / NullId`: Testa comportamentos de busca por ID.
+
 
 ![Teste5](../Imagens/teste5_registro-aula.png)
 
@@ -181,6 +186,7 @@ Novos testes automatizados criados para as verificações e validações da func
 - **Tratamento de erros:**
   - O sistema valida a consistência dos horários, impedindo o cadastro de uma lição cujo horário de término seja anterior ao horário de início.
   - Código: [LessonsService](https://github.com/LevoratoJoao/proj-eng-software/blob/main/Trabalho2/codigo/src/main/java/com/software/software/services/LessonsService.java)
+  ![tratamento_erro](../Imagens/feature_registro-aula2.png)
 
 ## Demonstração
 
